@@ -18,8 +18,12 @@ class PostAdmin(SummernoteModelAdmin):
 @admin.register(Request)
 class RequestAdmin(admin.ModelAdmin):
     list_display = (
-        'post', 'first_name', 'last_name', 'status'
+        'post', 'first_name', 'message', 'status'
     )
-    search_fields = ['post', 'date_created']
+    search_fields = ['post', 'date_created', 'message']
     list_filter = ('status', 'date_created')
+    actions = ['approve_requests']
+
+    def approve_requests(self, request, queryset):
+        queryset.update(approved=True)
 

@@ -30,7 +30,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-hinakhan94-palpicker-sjq20lkroo7.ws-eu105.gitpod.io', 'palpicker.herokuapp.com', 'localhost', 'palpicker-cfd61499c0a5.herokuapp.com']
+ALLOWED_HOSTS = ['8000-hinakhan94-palpicker-sjq20lkroo7.ws-eu105.gitpod.io',
+                 'palpicker.herokuapp.com',
+                 'localhost',
+                 'palpicker-cfd61499c0a5.herokuapp.com',
+                 '8000-hinakhan94-palpicker-sjq20lkroo7.ws-eu105.gitpod.io']
 
 
 # Application definition
