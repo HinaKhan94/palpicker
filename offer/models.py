@@ -2,9 +2,15 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from datetime import datetime, timedelta
+from django.utils import timezone
 
 # status zero as draft and 1 as published for offer
 STATUS = ((0, "Draft"), (1, "Published"))
+STATUS_CHOICES = (
+    ('Pending', 'Pending'),
+    ('Approved', 'Approved'),
+    ('Completed', 'Completed'),
+    )
 
 class Post(models.Model):
     """
@@ -31,3 +37,28 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Request(models.Model):
+    """
+    Model for requesting an offer to be used by the user
+    Fields added to notify the user when the request 
+    status is changed
+    """
+    post = models.ForeignKey(Post, on_delete=models.DO_NOTHING)
+    first_name = models.CharField(max_length=200)
+    last_name = models.CharField(max_length=200)
+    email = models.EmailField()
+    phone = models.CharField(max_length=100,
+                             verbose_name="Enter customer's contact number",)
+    message = models.TextField()
+    date_created = models.DateTimeField(default=timezone.now, blank=True)
+    status = models.CharField(max_length=25, choices=STATUS_CHOICES,
+                              default='Pending')
+    # user_id = models.IntegerField(blank=True, default='0')
+    # user_fk = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+    class Meta:
+        ordering = ['-date_created']
+
+    def __str__(self):
+        return self.post
