@@ -52,10 +52,24 @@ body {
     background-color: #fff;
 }
 
+/*-------The login page------*/
 .main-bg {
     background-color: #F9FAFC;
+    margin-bottom: 55px;
 }
 
+.btn-signup {
+  background-color: #E84610;
+  color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: #0F6799;
+}
+
+/*-------Offer section------*/
 .card {
     border: none;
     background-color: transparent;
@@ -74,7 +88,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #23BBBB;
+    background-color: #0F6799;
 }
 
 .author {
@@ -83,6 +97,7 @@ body {
     text-transform: uppercase;
 }
 
+/*-------Offer section------*/
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -137,17 +152,6 @@ body {
     color: lightgray;
 }
 
-.btn-signup {
-    background-color: #23BBBB;
-    color: #fff;
-}
-
-.btn-signup:hover,
-.btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
-}
-
 .link {
     color: #23BBBB;
     text-decoration: none;
@@ -172,6 +176,7 @@ body {
     border: none;
 }
 
+/*-------About us section------*/
 .wrapper {
     display: flex;
     justify-content: space-around;
@@ -194,26 +199,26 @@ body {
 
 /*-------------- media queries --------------- */
 @media only screen and (min-width: 768px) {
-    header.masthead .page-heading,
-    header.masthead .post-heading,
-    header.masthead .site-heading {
+    header.hero-image .page-heading,
+    header.hero-image .post-heading,
+    header.hero-image .site-heading {
       padding: 200px 0;
     }
   }
   
-  header.masthead .page-heading,
-  header.masthead .site-heading {
+  header.hero-image .page-heading,
+  header.hero-image .site-heading {
     text-align: center;
   }
   
-  header.masthead .page-heading h1,
-  header.masthead .site-heading h1 {
+  header.hero-image .page-heading h1,
+  header.hero-image .site-heading h1 {
     font-size: 50px;
     margin-top: 0;
   }
   
-  header.masthead .page-heading .subheading,
-  header.masthead .site-heading .subheading {
+  header.hero-image .page-heading .subheading,
+  header.hero-image .site-heading .subheading {
     font-size: 24px;
     font-weight: 300;
     line-height: 1.1;
@@ -224,45 +229,45 @@ body {
   
   
   @media only screen and (min-width: 768px) {
-    header.masthead .page-heading h1,
-    header.masthead .site-heading h1 {
+    header.hero-image .page-heading h1,
+    header.hero-image .site-heading h1 {
       font-size: 80px;
     }
   }
   
-  header.masthead .post-heading h1 {
+  header.hero-image .post-heading h1 {
     font-size: 35px;
   }
   
-  header.masthead .post-heading .meta,
-  header.masthead .post-heading .subheading {
+  header.hero-image .post-heading .meta,
+  header.hero-image .post-heading .subheading {
     line-height: 1.1;
     display: block;
   }
   
-  header.masthead .post-heading .subheading {
+  header.hero-image .post-heading .subheading {
     font-size: 24px;
     font-weight: 600;
     margin: 10px 0 30px;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
-  header.masthead .post-heading .meta {
+  header.hero-image .post-heading .meta {
     font-size: 20px;
     font-weight: 300;
     font-style: italic;
     font-family: 'Lora', 'Times New Roman', serif;
   }
   
-  header.masthead .post-heading .meta a {
+  header.hero-image .post-heading .meta a {
     color: #fff;
   }
   
   @media only screen and (min-width: 768px) {
-    header.masthead .post-heading h1 {
+    header.hero-image .post-heading h1 {
       font-size: 55px;
     }
-    header.masthead .post-heading .subheading {
+    header.hero-image .post-heading .subheading {
       font-size: 30px;
     }
   }
