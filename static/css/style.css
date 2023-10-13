@@ -1,8 +1,12 @@
 body {
     background-color: #F9FAFC;
 }
+/*-------Navebar--------*/
+.bg-white {
+    background-color: #F3C40D!important;
+}
 
-/* The hero image */
+/*-------The hero image------*/
   header.hero-image {
     margin-bottom: 50px;
     background: no-repeat center center;
@@ -48,10 +52,6 @@ body {
     background-color: #fff;
 }
 
-.dark-bg {
-    background-color: #445261;
-}
-
 .main-bg {
     background-color: #F9FAFC;
 }
@@ -59,6 +59,10 @@ body {
 .card {
     border: none;
     background-color: transparent;
+}
+
+.card-body {
+    background-color: #fff;
 }
 
 .image-container {
@@ -183,6 +187,12 @@ body {
     margin-top: 10px;
 }
 
+/*-------Footer------*/
+.dark-bg {
+    background-color: #F3C40D;
+}
+
+/*-------------- media queries --------------- */
 @media only screen and (min-width: 768px) {
     header.masthead .page-heading,
     header.masthead .post-heading,
@@ -212,7 +222,7 @@ body {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
-  /*-------------- media queries --------------- */
+  
   @media only screen and (min-width: 768px) {
     header.masthead .page-heading h1,
     header.masthead .site-heading h1 {
