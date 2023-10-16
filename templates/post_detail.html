@@ -1,5 +1,7 @@
 {% extends 'base.html' %} {% block content %}
 
+{% load crispy_forms_tags %}
+
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -25,38 +27,37 @@
 <div class="container">
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
+            <div class="card-body" id="description">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
                 <p class="card-text ">
                     {{ post.description | safe }}
                 </p>
-                <div class="row">
-
-                    <div class="col-1">
-                        <!-- The number of likes goes before the closing strong tag -->
-                        <strong class="text-secondary"><i class="far fa-heart"></i> </strong>
-                    </div>
-                    <div class="col-1">
-                        {% with comments.count as total_comments %}
-                        <strong class="text-secondary"><i class="far fa-comments"></i>
-                            <!-- Our total_comments variable goes before the closing strong tag -->
-                        </strong>
-                        {% endwith %}
-                    </div>
-                </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-   
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                <!-- For later -->
+                <button type="submit" class="btn btn-signup btn-lg">Request Service!</button>
+                <br>
+                <!-- to tell the user that their request is awaiting approval -->
+                {% if requested %}
+                <div class="alert alert-success" role="alert">
+                    Your request is awaiting approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+                <h3>Make a Request to avail this service</h3> 
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ request_form | crispy }}
+                    {% csrf_token %}
+                    <br>
+                    <button type="submit" class="btn btn-signup btn-lg">Request Service!</button>
+                </form>
+                {% endif %}
+                {% endif %}
+                <br>
+                <button type="submit" class="btn btn-signup btn-lg">Contact Now for Queries!</button>
             </div>
         </div>
     </div>
