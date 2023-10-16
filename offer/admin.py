@@ -18,7 +18,7 @@ class PostAdmin(SummernoteModelAdmin):
 @admin.register(Request)
 class RequestAdmin(admin.ModelAdmin):
     list_display = (
-        'post', 'first_name', 'message', 'status'
+        'post', 'first_name', 'message', 'status', 'approved'
     )
     search_fields = ['post', 'date_created', 'message']
     list_filter = ('status', 'date_created')

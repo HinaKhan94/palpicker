@@ -56,6 +56,7 @@ class Request(models.Model):
                               default='Pending')
     # user_id = models.IntegerField(blank=True, default='0')
     # user_fk = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-date_created']
