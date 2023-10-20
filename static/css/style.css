@@ -108,6 +108,11 @@ body {
     width: 100%;
 }
 
+.offer-h1 {
+  text-align: center;
+  padding: 10px;
+}
+
 .masthead-text {
     background-color: #445261;
     color: white;
@@ -185,17 +190,25 @@ body {
     flex-wrap: wrap;
 } 
 
+.about-h1 {
+  text-align: center;
+  padding: 10px;
+}
+
+.about-h3 {
+  margin-top: 15px;
+}
+
+.about-icon {
+  font-size: 300%;
+}
+
 .about-us {
-    border: #23BBBB solid;
     padding: 20px;
     width: 400px;
     height: 400px;
     margin-bottom: 10px;
     margin-top: 10px;
-}
-
-.info-img {
-  padding: 5vh 0 15vh 0;
 }
 
 /*-------Footer------*/
