@@ -39,7 +39,7 @@
     </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                <button type="submit" class="btn btn-signup btn-lg">Request Service!</button>
+                <button type="submit" class="btn btn-signup btn-lg" data-bs-toggle="modal" data-bs-target="#request-service">Request Service!</button>
                 <br>
                 <!-- to tell the user that their request is awaiting approval -->
                 {% if requested %}
@@ -58,10 +58,27 @@
                 {% endif %}
                 {% endif %}
                 <br>
-                <button type="submit" class="btn btn-signup btn-lg">Contact Now for Queries!</button>
-            </div>
-        </div>
-    </div>
-</div>
+                <button type="submit" class="btn btn-signup btn-lg" data-bs-toggle="modal" data-bs-target="#request-service">Contact Now for Queries!</button>
+                <!-- Modal -->
+                <div class="modal fade" id="request-service" tabindex="-1" aria-labelledby="request-modal-title" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="request-modal-title">Are you Registered/LoggedIn?</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <p>If you have not yet signed up, then please first register to our website 
+                            <a href="{% url 'account_signup' %}">here!</a>
+                            or log in to your account to avail this offer!</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">LogIn</button>
+                          <button type="button" class="btn btn-primary">Register</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
 
 {% endblock content %}
