@@ -69,12 +69,13 @@
                         </div>
                         <div class="modal-body">
                           <p>If you have not yet signed up, then please first register to our website 
-                            <a href="{% url 'account_signup' %}">here!</a>
                             or log in to your account to avail this offer!</p>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">LogIn</button>
-                          <button type="button" class="btn btn-primary">Register</button>
+                          <a href="{% url 'account_login' %}">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">LogIn</button></a>
+                          <a href="{% url 'account_signup' %}">
+                          <button type="button" class="btn btn-primary">Register</button></a>
                         </div>
                       </div>
                     </div>
