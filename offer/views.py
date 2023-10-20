@@ -10,6 +10,7 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 3
 
+
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -54,3 +55,11 @@ class PostDetail(View):
             },
      
         )
+
+class AboutView(generic.TemplateView):
+    template_name = 'aboutus.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['navbar'] = 'aboutus'
+        return context
