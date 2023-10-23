@@ -1,5 +1,6 @@
 body {
     background-color: #F9FAFC;
+    
 }
 /*-------Navbar--------*/
 .bg-white {
@@ -353,6 +354,10 @@ body {
 /*-------Footer------*/
 .dark-bg {
     background-color: #F3C40D;
+}
+
+footer {
+  color: #4A4A4F;
 }
 
 /*-------------- media queries --------------- */
