@@ -1,4 +1,4 @@
-from .models import Request
+from .models import Request,Contact
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
@@ -8,10 +8,16 @@ class RequestForm(forms.ModelForm):
         model = Request
         fields = ('first_name', 'last_name', 'email', 'message',)
 
-class ContactForm(forms.Form):
+class ContactForm(forms.ModelForm):
     """
     It is used on the contact page for any user
     queries
+    """
+    class Meta:
+        model = Contact
+        fields = ('name', 'email', 'message',)
+
+
     """
     name = forms.CharField(max_length=100)
     email = forms.EmailField()
@@ -25,3 +31,4 @@ class ContactForm(forms.Form):
             'email',
             'message',
         )
+    """
