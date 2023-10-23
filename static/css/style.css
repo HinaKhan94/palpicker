@@ -57,9 +57,7 @@ body {
     background-color: #fff;
 }
 
-/*-------------------------------------------------------------
-# Breadcrumbs
--------------------------------------------------------------*/
+/*-------Breadcrumbs------*/
 .breadcrumbs {
   padding: 10px 0;
 }
@@ -83,13 +81,13 @@ body {
 }
 
 .breadcrumbs ol li a {
-  color: #fb8500;
+  color: #E84610;
 }
 
 .breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #495057;
+  color: #4A4A4F;
   content: "/";
 }
 
@@ -267,11 +265,13 @@ body {
     margin-top: 10px;
 }
 
-/*-------------------------------------------------------------
-# Contact
--------------------------------------------------------------*/
+/*-------Contact Section------*/
 #contact {
   padding: 0;
+}
+
+.contact-h1 {
+  text-align: center;
 }
 
 .contact-details {
@@ -297,7 +297,7 @@ body {
 
 .contact .info i {
   font-size: 20px;
-  color: #fb8500;
+  color: #E84610;
   float: left;
   width: 44px;
   height: 44px;
@@ -314,18 +314,18 @@ body {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #fb8500;
+  color: #E84610;
 }
 
 .contact .info p {
   padding: 0 0 0 60px;
   margin-bottom: 0;
   font-size: 14px;
-  color: #495057;
+  color: #4A4A4F;
 }
 
 .contact .info:hover i {
-  background: #495057;
+  background: #4A4A4F;
   color: #fff;
 }
 
@@ -347,7 +347,7 @@ body {
 }
 
 .enquiry-icon {
-  color: #fb8500;
+  color: #E84610;
 }
 
 /*-------Footer------*/
