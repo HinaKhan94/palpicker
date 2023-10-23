@@ -11,7 +11,7 @@ body {
   header.hero-image {
     margin-bottom: 50px;
     background: no-repeat center center;
-    background-color: #868e96;
+    background-color: #F9FAFC;
     background-attachment: scroll;
     position: relative;
     background-size: cover;
@@ -193,7 +193,7 @@ body {
     z-index: 100;
 }
 
-
+/*-------Register/login section links------*/
 .post-link {
     text-decoration: none;
     color: #445261;
@@ -215,7 +215,7 @@ body {
 }
 
 .link {
-    color: #23BBBB;
+    color: #E84610;
     text-decoration: none;
 }
 
@@ -360,6 +360,12 @@ footer {
   color: #4A4A4F;
 }
 
+#footer .credits {
+  padding-top: 5px;
+  font-size: 13px;
+  color: #4A4A4F;
+}
+
 /*-------------- media queries --------------- */
 @media only screen and (min-width: 768px) {
     header.hero-image .page-heading,
@@ -387,7 +393,7 @@ footer {
     line-height: 1.1;
     display: block;
     margin: 10px 0 0;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
   }
   
   
@@ -412,14 +418,14 @@ footer {
     font-size: 24px;
     font-weight: 600;
     margin: 10px 0 30px;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
   }
   
   header.hero-image .post-heading .meta {
     font-size: 20px;
     font-weight: 300;
     font-style: italic;
-    font-family: 'Lora', 'Times New Roman', serif;
+    font-family: 'Lato', sans-serif;
   }
   
   header.hero-image .post-heading .meta a {

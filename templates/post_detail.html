@@ -58,7 +58,8 @@
                 {% endif %}
                 {% endif %}
                 <br>
-                <button type="submit" class="btn btn-signup btn-lg" data-bs-toggle="modal" data-bs-target="#request-service">Contact Now for Queries!</button>
+                <a href="{% url 'contact' %}">
+                <button type="submit" class="btn btn-signup btn-lg">Contact Now for Queries!</button></a>
                 <!-- Modal -->
                 <div class="modal fade" id="request-service" tabindex="-1" aria-labelledby="request-modal-title" aria-hidden="true">
                     <div class="modal-dialog">
@@ -73,7 +74,7 @@
                         </div>
                         <div class="modal-footer">
                           <a href="{% url 'account_login' %}">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">LogIn</button></a>
+                          <button type="button" class="btn btn-success" data-bs-dismiss="modal">LogIn</button></a>
                           <a href="{% url 'account_signup' %}">
                           <button type="button" class="btn btn-primary">Register</button></a>
                         </div>
