@@ -57,6 +57,57 @@ body {
     background-color: #fff;
 }
 
+/*-------------------------------------------------------------
+# Breadcrumbs
+-------------------------------------------------------------*/
+.breadcrumbs {
+  padding: 10px 0;
+}
+
+.breadcrumbs h2 {
+  font-size: 26px;
+  font-weight: 300;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+}
+
+.breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.breadcrumbs ol li a {
+  color: #fb8500;
+}
+
+.breadcrumbs ol li+li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #495057;
+  content: "/";
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs .d-flex {
+    display: block !important;
+  }
+
+  .breadcrumbs ol {
+    display: block;
+  }
+
+  .breadcrumbs ol li {
+    display: inline-block;
+  }
+}
+
+
 /*-------The login page------*/
 .main-bg {
     background-color: #F9FAFC;
@@ -214,6 +265,89 @@ body {
     height: 400px;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+/*-------------------------------------------------------------
+# Contact
+-------------------------------------------------------------*/
+#contact {
+  padding: 0;
+}
+
+.contact-details {
+  margin-top: 0;
+  padding-bottom: 10px;
+  align-items: center;
+}
+
+.send-message-btn {
+  margin: 50px 0 20px 0;
+  font-size: 20px;
+  align-items: center;
+}
+
+.contact .container {
+  align-items: center;
+}
+
+.contact .info-wrap {
+  background: #fff;
+  border-radius: 4px;
+}
+
+.contact .info i {
+  font-size: 20px;
+  color: #fb8500;
+  float: left;
+  width: 44px;
+  height: 44px;
+  background: #f7fbfe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact .info h4 {
+  padding: 0 0 0 10px;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #fb8500;
+}
+
+.contact .info p {
+  padding: 0 0 0 60px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #495057;
+}
+
+.contact .info:hover i {
+  background: #495057;
+  color: #fff;
+}
+
+.contact-form-container {
+  max-width: 500px;
+}
+
+.icon-header {
+  display: flex;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.enquiry-icon {
+  color: #fb8500;
 }
 
 /*-------Footer------*/

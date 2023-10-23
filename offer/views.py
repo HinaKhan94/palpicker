@@ -3,6 +3,8 @@ from django.views import generic, View
 from .models import Post, Contact
 from .forms import RequestForm, ContactForm
 from django.core.mail import send_mail
+from django.contrib import messages
+from django.contrib.auth.models import User
 
 
 class PostList(generic.ListView):
@@ -66,34 +68,68 @@ class AboutView(generic.TemplateView):
         return context
 
 
-class ContactView(View):
-    def get(self, request):
-        form = ContactForm()
-        return render(request, 'contact/contact_form.html', {'form': form})
+class ContactView(generic.TemplateView):
+    """
+    Renders Contact page form and submits user data via email to the
+    administrator and to the user.
 
-    def post(self, request):
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            # Get data from the form
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
+    Contact view is accessed directly via the Contact link in the menu bar,
+    or via the van_detail page.
 
+    If the contact form is accessed directly by the menu bar, the page
+    redirects to the home page.
+
+    If the contact form is accessed by the van_detail page, the email includes
+    the van details and redirects the user back to the van_detail page
+    """
+    template_name = 'contact.html'
+
+    def post(self, request, slug=None, *args, **kwargs):
+        user = User.objects.get(username='admin')
+        post = None
+
+        if slug is not None:
+            post = get_object_or_404(Post, slug=slug)
+
+        if request.method == 'POST':
+            contact_form = ContactForm(request.POST)
+            if contact_form.is_valid():
+                name = contact_form.cleaned_data['name']
+                email = contact_form.cleaned_data['email']
+                message = contact_form.cleaned_data['message']
+
+            subject = 'Offer Inquiry'
+            if post is not None:
+                subject += ' ' + post.name
+
+            send_mail(
+                subject,
+                'There has been an inquiry from: ' + name + ' from email: '
+                + email + '. Their message is as follows: "' + message + '." '
+                'An administrator will get back to you within 24 hours.',
+                'admin@palpicker.com',
+                [email, user.email],
+                fail_silently=False
+            )
+
+            messages.success(request, "Your message has been sent! "
+                                      "You will be contacted within 24 hours.")
+            
             # Save the submission to the database
             submission = Contact(name=name, email=email, message=message)
             submission.save()
-
-            # Send an email
-            subject = 'Contact Form Submission'
-            message_body = f'Name: {name}\nEmail: {email}\nMessage: {message}'
-            from_email = 'admin@palpicker.com'
-
-            send_mail(subject, message_body, from_email, [email], fail_silently=False)
-
-
-            # Redirect to a success page or render a thank-you message
-            return redirect('')
-
+            
+            if post is not None:
+                return redirect('post_detail', slug=slug)
+            else:
+                return redirect('home')
         else:
-            form = ContactForm()
-        return render(request, 'contact/contact.html', {'form': form})
+            contact_form = ContactForm()
+
+        context = {
+            'post': post,
+            'contact_form': contact_form,
+            'slug': slug
+        }
+
+        return render(request, 'contact.html', context)
