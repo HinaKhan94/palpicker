@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
-from .models import Post
-from .forms import RequestForm
+from .models import Post, Contact
+from .forms import RequestForm, ContactForm
+from django.core.mail import send_mail
 
 
 class PostList(generic.ListView):
@@ -63,3 +64,36 @@ class AboutView(generic.TemplateView):
         context = super().get_context_data(**kwargs)
         context['navbar'] = 'aboutus'
         return context
+
+
+class ContactView(View):
+    def get(self, request):
+        form = ContactForm()
+        return render(request, 'contact/contact_form.html', {'form': form})
+
+    def post(self, request):
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Get data from the form
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            # Save the submission to the database
+            submission = Contact(name=name, email=email, message=message)
+            submission.save()
+
+            # Send an email
+            subject = 'Contact Form Submission'
+            message_body = f'Name: {name}\nEmail: {email}\nMessage: {message}'
+            from_email = 'admin@palpicker.com'
+
+            send_mail(subject, message_body, from_email, [email], fail_silently=False)
+
+
+            # Redirect to a success page or render a thank-you message
+            return redirect('')
+
+        else:
+            form = ContactForm()
+        return render(request, 'contact/contact.html', {'form': form})

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<section class="bg-light">
+    <div class="container">
+        <div class="section-title section-header">
+            <h1>Contact Us</h1>
+        </div>
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div id="breadcrumbs" class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <ol>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li>Contact</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- End Breadcrumbs -->
+    </div>
+</section>
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="row mt-5 justify-content-center contact-details">
+            <div class="col-lg-10">
+                <div class="info-wrap">
+                    <div class="row">
+                        <div class="col-lg-4 info">
+                            <div class="icon-header">
+                                <i class="fa-sharp fa-solid fa-location-dot contact-icons"></i>
+                                <h4>Location:</h4>
+                            </div>
+                            <h5>93053 Regensburg, Germany</h5>
+                        </div>
+                        <div class="col-lg-4 info mt-4 mt-lg-0 contact-icons">
+                            <div class="icon-header">
+                                <i class="fa-solid fa-envelope contact-icons"></i>
+                                <h4>Email:</h4>
+                            </div>
+                            <h5>admin@palpicker.com</h5>
+                        </div>
+                        <div class="col-lg-4 info mt-4 mt-lg-0">
+                            <div class="icon-header">
+                                <i class="fa-solid fa-phone contact-icons"></i>
+                                <h4>Call:</h4>
+                            </div>
+                            <h5>01211 32123213</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Contact Section -->
+
+<!-- ======= Contact Form Section ======= -->
+<div id="login" class="bg-light py-5">
+    <div class="container">
+        <!-- Onscreen Messages -->
+        {%  include 'partials/_onscreen_messages.html' %}
+
+        <div class="card-body">
+            <div class="contact-form-container mx-auto my-4">
+                {% if slug %}
+                <h4 class="enquiry-icon"><i class="fa-solid fa-paper-plane"></i><span> </span>Enquiry for:</h4>
+                <h4>Offer: {{ post.title }}</h4>
+                <br>
+                {% endif %}
+                <form
+                    action="{% if post %}{% url 'contact_from_offer' slug=post.slug %}{% else %}{% url 'contact' %}{% endif %}"
+                    method="POST">
+                    {% csrf_token %}
+                    {{ contact_form|crispy }}
+                    <input type="submit" name="submit" value="Send Message"
+                        class="btn btn-warning btn-block send-message-btn">
+                </form>
+            </div>
+        </div>
+    </div>
+</div><!-- End Contact Form Section -->
+{% endblock %}
