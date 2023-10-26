@@ -351,6 +351,24 @@ body {
   color: #E84610;
 }
 
+/*-------User Profile Dashboard------*/
+
+.btn-big {
+  font-size: 500%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: #E84610;
+  background: #F9FAFC;
+  width: 30%;
+}
+
+.btn-big i {
+  font-size: 75px;
+  justify-content: center;
+}
+
+
+
 /*-------Footer------*/
 .dark-bg {
     background-color: #F3C40D;
