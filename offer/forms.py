@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
-from user.models import UserProfile
 import uuid
 
 
@@ -37,12 +36,3 @@ class ContactForm(forms.ModelForm):
             'message',
         )
     """
-
-class UserProfileForm(forms.ModelForm):
-    """
-    Form for handling, creating and editing user profile
-    """
-    class Meta:
-        model = UserProfile
-        fields = '__all__'
-        exclude = ['created', 'user']

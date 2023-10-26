@@ -1,32 +1,32 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 import uuid
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    username = models.CharField(max_length=200, blank=False, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='userprofile')
     name = models.CharField(max_length=200, blank=False, null=True)
     email = models.EmailField(max_length=300, blank=False, null=True)
     phone = models.CharField(max_length=100, blank=True, null=True)
-    profile_img = models.ImageField(upload_to='users/', blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           editable=False, primary_key=True)
+ 
 
-    
     def __str__(self):
-        return str(self.username)
+        return str(self.name)
+
+@receiver(post_save, sender=User)
+def create_or_update_profile(sender, instance, created, **kwargs):
+    """
+    Create or update the user profile
+    """
+    if created:
+        UserProfile.objects.create(user=instance)
+    # Existing users: just save the profile
+    instance.userprofile.save()
     
-    @property
-    def profile_img(self):
-        if self.profile_image:
-            url = self.profile_image.url
-        else:
-            url = (
-                settings.STATIC_URL +
-                'images/users/user-default.webp'
-            )
-        return url
     
 
 
