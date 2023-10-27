@@ -31,9 +31,9 @@
             <div class="col-md-12">
                 <div class="col-md-12 create-btn">
                     <h2>Create New Service</h2>
-                    <button class="create-btn btn-big" data-toggle="modal" data-target="#offerModal"
-                        aria-label="Create Booking"><i class="fa-solid fa-circle-plus"></i>
-                    </button>
+                    <a href="{% url 'create_offer' %}" class="btn btn-primary">
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </a>
                 </div>
             </div>
             <div class="col-md-12">
@@ -104,32 +104,7 @@
                 {% endif %}
             </div><!-- End Booking Items -->
         </div>
-
- <!-- Offer Modal -->
- <!-- Modal -->
-<div class="modal fade" id="offerModal" tabindex="-1" role="dialog" aria-labelledby="offerModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="offerModalLabel">Create Post</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary">Create</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    
-    
+        
         
 {% endblock %}
 

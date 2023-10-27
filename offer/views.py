@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.http import Http404
 
 
@@ -133,19 +134,14 @@ class ContactView(generic.TemplateView):
 
 
 class CreateOfferView(View):
-    
-    """
-    Renders Create Offer form and submits user data to the 
-    Database to be saved
+    template_name = 'create_offer.html'
 
-    """
-
-    template_name = 'user_profile.html'
-
+    @method_decorator(login_required)
     def get(self, request):
         form = CreateOfferForm()
         return render(request, self.template_name, {'form': form})
 
+    @method_decorator(login_required)
     def post(self, request):
         form = CreateOfferForm(request.POST, request.FILES)
         if form.is_valid():
@@ -197,6 +193,8 @@ class DeleteOfferView(View):
 @login_required
 class EditOfferView(View):
     """
+     allows you to edit the details of an offer using a modal. 
+     
     """
     template_name = 'edit_offer.html'
 

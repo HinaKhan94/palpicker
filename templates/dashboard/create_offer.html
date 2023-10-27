@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<!-- ======= Breadcrumbs ======= -->
+<div id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center">
+            <ol>
+                <li><a href="{% url 'user_profile' %}">My Profile</a></li>
+                <li>Create new offer</li>
+            </ol>
+        </div>
+    </div>
+</div><!-- End Breadcrumbs -->
+
+<section class="bg-light">
+    <div class="container">
+        <div class="section-title section-header">
+            <h1>Create New Offer</h1>
+        </div>
+    </div>
+</section>
+
+<div class="py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" name="title">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" class="form-control" id="price" name="price">
+                    </div>
+                    <div class="form-group">
+                        <label for="featured_image">Featured Image</label>
+                        <input type="file" class="form-control" id="featured_image" name="featured_image">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Offer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
