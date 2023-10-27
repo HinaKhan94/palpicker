@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from .models import Post, Contact
 from .forms import RequestForm, ContactForm, CreateOfferForm, EditOfferForm
@@ -156,8 +157,8 @@ class CreateOfferView(View):
         return render(request, self.template_name, {'form': form})
 
 
-@login_required
-class DeleteOfferView(View):
+
+class DeleteOfferView(LoginRequiredMixin, View):
 
     """
     This view first checks if the user is the author of the offer
@@ -171,9 +172,9 @@ class DeleteOfferView(View):
 
     template_name = 'dashboard/delete_offer.html'
 
-    def get(self, request, offer_id):
+    def get(self, request, offer_slug):
         try:
-            offer = Post.objects.get(pk=offer_id)
+            offer = Post.objects.get(slug=offer_slug)
             if offer.author != request.user:
                 raise Http404
         except Post.DoesNotExist:
@@ -181,9 +182,9 @@ class DeleteOfferView(View):
 
         return render(request, self.template_name, {'offer': offer})
 
-    def post(self, request, offer_id):
+    def post(self, request, offer_slug):
         try:
-            offer = Post.objects.get(pk=offer_id)
+            offer = Post.objects.get(slug=offer_slug)
             if offer.author != request.user:
                 raise Http404
         except Post.DoesNotExist:
@@ -194,21 +195,21 @@ class DeleteOfferView(View):
         return redirect('user_profile')
 
 
-@login_required
-class EditOfferView(View):
+
+class EditOfferView(LoginRequiredMixin, View):
     """
      allows you to edit the details of an offer using a modal. 
      
     """
     template_name = 'dashboard/edit_offer.html'
 
-    def get(self, request, post_id):
-        post = Post.objects.get(pk=post_id)
+    def get(self, request, offer_slug):
+        post = Post.objects.get(slug=offer_slug)
         form = EditOfferForm(instance=post)
         return render(request, self.template_name, {'form': form, 'post': post})
 
-    def post(self, request, post_id):
-        post = Post.objects.get(pk=post_id)
+    def post(self, request, offer_slug):
+        post = Post.objects.get(slug=offer_slug)
         form = EditOfferForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
