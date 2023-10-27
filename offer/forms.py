@@ -6,15 +6,6 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit
 import uuid
 
-class CreateOfferForm(forms.ModelForm):
-    """
-    """
-    class Meta:
-        model = Post
-        fields = ['title', 'description', 'price',
-                  'featured_image']
-
-
 
 class RequestForm(forms.ModelForm):
     class Meta:
@@ -45,3 +36,18 @@ class ContactForm(forms.ModelForm):
             'message',
         )
     """
+class CreateOfferForm(forms.ModelForm):
+    """
+    """
+    class Meta:
+        model = Post
+        fields = ['title', 'description', 'price',
+                  'featured_image', 'excerpt']
+
+
+class EditOfferForm(forms.ModelForm):
+    """
+    """
+    class Meta:
+        model = Post
+        fields = ['title', 'description', 'price', 'featured_image', 'excerpt']

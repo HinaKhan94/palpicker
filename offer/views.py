@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Post, Contact
-from .forms import RequestForm, ContactForm, CreateOfferForm
+from .forms import RequestForm, ContactForm, CreateOfferForm, EditOfferForm
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.models import User
@@ -192,3 +192,23 @@ class DeleteOfferView(View):
         offer.delete()
         messages.success(request, 'Offer deleted successfully')
         return redirect('user_profile')
+
+
+@login_required
+class EditOfferView(View):
+    """
+    """
+    template_name = 'edit_offer.html'
+
+    def get(self, request, post_id):
+        post = Post.objects.get(pk=post_id)
+        form = EditOfferForm(instance=post)
+        return render(request, self.template_name, {'form': form, 'post': post})
+
+    def post(self, request, post_id):
+        post = Post.objects.get(pk=post_id)
+        form = EditOfferForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('user_profile')
+        return render(request, self.template_name, {'form': form, 'post': post})

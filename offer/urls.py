@@ -11,4 +11,5 @@ urlpatterns = [
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
     path('create_offer/', views.CreateOfferView.as_view(), name='create_offer'),
     path('delete_offer/<int:offer_id>/', views.delete_offer, name='delete_offer'),
+    path('edit_offer/<int:post_id>/', views.EditOfferView.as_view(), name='edit_offer'),
 ]
