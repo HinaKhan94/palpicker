@@ -69,6 +69,17 @@
                                 </ul>
 
                             </div>
+                            <div class="col-12 col-md-4 mt-3">
+                                <!-- Edit Button -->
+                                <a class="btn btn-primary" href="{% url 'edit_offer' post.id %}">
+                                    Edit
+                                </a>
+                
+                                <!-- Delete Button -->
+                                <a class="btn btn-danger" href="{% url 'delete_offer' post.id %}">
+                                    Delete
+                                </a>
+                            </div>
 
                         </div>
                     </div>
