@@ -54,8 +54,8 @@ class Request(models.Model):
     date_created = models.DateTimeField(default=timezone.now, blank=True)
     status = models.CharField(max_length=25, choices=STATUS_CHOICES,
                               default='Pending')
-    # user_id = models.IntegerField(blank=True, default='0')
-    # user_fk = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user_id = models.IntegerField(blank=True, default='0')
+    user_fk = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     approved = models.BooleanField(default=False)
 
     class Meta:

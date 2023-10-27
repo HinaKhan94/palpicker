@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Post, Contact
-from .forms import RequestForm, ContactForm
+from .forms import RequestForm, ContactForm, CreateOfferForm
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
 
 class PostList(generic.ListView):
@@ -133,3 +134,20 @@ class ContactView(generic.TemplateView):
         }
 
         return render(request, 'contact.html', context)
+
+
+class CreateOfferView(View):
+    template_name = 'user_profile.html'
+
+    def get(self, request):
+        form = CreateOfferForm()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = CreateOfferForm(request.POST, request.FILES)
+        if form.is_valid():
+            new_post = form.save(commit=False)
+            new_post.author = request.user
+            new_post.save()
+            return redirect('user_profile')
+        return render(request, self.template_name, {'form': form})

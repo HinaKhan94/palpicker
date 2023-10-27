@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block extra_title %} - {{ user }} Profile{% endblock %}
 
@@ -40,7 +41,7 @@
                 {% for posts in post %}
                 <!--  Items -->
                 <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4">
-                    <div class="container booking-details-card card shadow my-2">
+                    <div class="container offer-details-card card shadow my-2">
                         <div class="row">
                             <div class="col-12 col-md-8 mt-3">
                                 <ul>
@@ -62,7 +63,7 @@
                                     </li>
 
                                     <li
-                                        class="booking-status {% if post.status == 'Pending' %}pending{% elif post.status == 'Approved' %}approved{% endif %}">
+                                        class="offer-status {% if post.status == 'Pending' %}pending{% elif post.status == 'Approved' %}approved{% endif %}">
                                         <i class="fa-solid fa-traffic-light"></i>{{ post.status }}</li>
 
                                 </ul>
@@ -93,44 +94,28 @@
             </div><!-- End Booking Items -->
         </div>
 
-        <!-- Offer Modal -->
-<div class="modal fade" id="offerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="OfferModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="OfferModalLabel">Offer a New Service</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+ <!-- Offer Modal -->
+ <!-- Modal -->
+<div class="modal fade" id="offerModal" tabindex="-1" role="dialog" aria-labelledby="offerModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="offerModalLabel">Create Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </form>
+            </div>
         </div>
-        <div class="modal-body">
-            <form action="{% url 'create_booking' %}" method="POST">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <div id="messages" class="container">
-                    {% if form.non_field_errors %}
-                    <div class="alert alert-danger alert-dismissable text-center" role="alert">
-                        {% for error in form.non_field_errors %}
-                        <strong>{{ error }}</strong>
-                        {% endfor %}
-                    </div>
-                    {% endif %}
-                    {% for field in form %}
-                    {% if field.errors %}
-                    <div class="alert alert-danger alert-dismissable text-center" role="alert">
-                        <strong>{{ field.errors|join:" " }}</strong>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-                <input type="submit" value="Request Booking" class="btn btn-warning btn-block">
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
 
     
     

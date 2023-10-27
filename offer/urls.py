@@ -9,4 +9,5 @@ urlpatterns = [
     path('contact/', views.ContactView.as_view(), name='contact'),
     path('contact/<str:slug>', views.ContactView, name='contact_from_offer'),
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
+    path('create_offer/', views.CreateOfferView.as_view(), name='create_offer'),
 ]
