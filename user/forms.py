@@ -1,35 +1,28 @@
 from django import forms
-from .models import UserProfile
+from allauth.account.forms import SignupForm
 
-class UserProfileForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ('name', 'email', 'phone',)
-        exclude = ('user',)
 
-def __init__(self, *args, **kwargs):
-    """
-    Add placeholders and classes, remove auto-generated
-    labels and set autofocus on the first field,
-    add aria labels to fields for accessibility
-    """
-    super().__init__(*args, **kwargs)
-    placeholders = {
-        'name': 'Full Name',
-        'phone': 'Phone Number',
-    }
+class CustomRegistrationForm(SignupForm):
+    name = forms.CharField(max_length=200)
+    email = forms.EmailField(max_length=300)
+    phone = forms.CharField(max_length=100, required=False)
+    password1 = forms.CharField(widget=forms.PasswordInput, label="Password")
+    password2 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
 
-    self.fields['name'].widget.attrs['autofocus'] = True
-    self.fields['name'].widget.attrs['aria-label'] = 'Full Name'
-    self.fields['phone'].widget.attrs['aria-label'] = 'Phone Number'
+    def clean_password2(self):
+        password1 = self.cleaned_data.get("password1")
+        password2 = self.cleaned_data.get("password2")
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Passwords do not match")
+        return password2
 
-    for field in self.fields:
-        if field != 'name':
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'profile-form-input'
-        self.fields[field].label = False
-
+    def save(self, request):
+        user = super(CustomRegistrationForm, self).save(request)
+        user_profile, created = UserProfile.objects.get_or_create(user=user)
+        user_profile.name = self.cleaned_data['name']
+        user_profile.email = self.cleaned_data['email']
+        user_profile.phone = self.cleaned_data['phone']
+        user_profile.save()
+        user.set_password(self.cleaned_data['password1'])  # Set the user's password
+        user.save()
+        return user

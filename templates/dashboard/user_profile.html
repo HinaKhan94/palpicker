@@ -2,8 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block extra_title %} - {{ user }} Profile{% endblock %}
-
+{% block extra_title %} - {{ user.username }} Profile{% endblock %}
 
 {% block content %}
 <section class="bg-light">
@@ -21,7 +20,7 @@
 
     <div class="container">
         <div class="dashboard-title">
-            <h1><strong>Welcome {{ user.name }}:</strong></h1>
+            <h1><strong>Welcome {{ user }}:</strong></h1>
         </div>
 
 <!-- ======= Profile Dashboard ======= -->
@@ -38,7 +37,7 @@
             </div>
             <div class="col-md-12">
                 <h3>Your Offers</h3>
-                {% for posts in post %}
+                {% for post in user_offers %}
                 <!--  Items -->
                 <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4">
                     <div class="container offer-details-card card shadow my-2">
@@ -71,12 +70,12 @@
                             </div>
                             <div class="col-12 col-md-4 mt-3">
                                 <!-- Edit Button -->
-                                <a class="btn btn-primary" href="{% url 'edit_offer' post.id %}">
+                                <a class="btn btn-primary" href="{% url 'edit_offer' offer_slug=post.slug %}">
                                     Edit
                                 </a>
                 
                                 <!-- Delete Button -->
-                                <a class="btn btn-danger" href="{% url 'delete_offer' post.id %}">
+                                <a class="btn btn-danger" href="{% url 'delete_offer' offer_slug=post.slug %}">
                                     Delete
                                 </a>
                             </div>
@@ -84,7 +83,6 @@
                         </div>
                     </div>
                 </div>
-                
                 {% empty %}
                 <p>There are no offers to display, create one now!</p>
                 {% endfor %}
@@ -92,19 +90,15 @@
                 {% if is_paginated %}
                 <nav aria-label="Page navigation">
                     <ul class="pagination justify-content-center">
-                        {% if page_obj.has_previous %}
-                        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                        {% if user.userprofile.useroffer_set.has_previous %}
+                        <li><a href="?page={{ user.userprofile.useroffer_set.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
                         {% endif %}
-                        {% if page_obj.has_next %}
-                        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-
+                        {% if user.userprofile.useroffer_set.has_next %}
+                        <li><a href="?page={{ user.userprofile.useroffer_set.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
                         {% endif %}
                     </ul>
                 </nav>
                 {% endif %}
             </div><!-- End Booking Items -->
         </div>
-        
-        
 {% endblock %}
-

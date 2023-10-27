@@ -1,60 +1,39 @@
 from django.shortcuts import render, get_object_or_404
-from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect
-
-
+from django.contrib.auth.forms import UserCreationForm
+from .forms import CustomRegistrationForm
+from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 from .models import UserProfile
-from .forms import UserProfileForm
-
 from offer.models import Post
 
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST['username']
-        password = request.POST['password']
-        user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return redirect('user_profile')  # Redirect to the user profile page after successful login
+class RegistrationView(CreateView):
+    form_class = CustomRegistrationForm
+    template_name = 'account/signup.html'
+    success_url = reverse_lazy('dashboard/user_profile.html')  # Redirect to the user's profile page after registration
 
-    # Add handling for unsuccessful login here
-    return render(request, 'account/login.html')
+    def form_valid(self, form):
+        user = form.save(self.request)
+        login(self.request, user)
+        return super().form_valid(form)
+
 
 
 @login_required
-def profile(request):
-    """
-    Display a user's profile Page
-    """
-    try:
-        profile = get_object_or_404(UserProfile, user=request.user)
-    except UserProfile.DoesNotExist:
-        # If the user doesn't have a UserProfile, redirect to the signup page.
-        return redirect('account_signup')  # Redirect to the signup view or URL
+def user_profile(request):
+    # Retrieve the user's profile
+    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
 
-   
-    else:
-        if request.method == 'POST':
-            form = UserProfileForm(request.POST, instance=profile)
-            if form.is_valid():
-                form.save()
-                messages.success(request, 'Your profile was updated successfully')
-            else:
-                messages.error(request, 'Profile update failed. Please ensure your profile information is valid and try again.')
-        else:
-            form = UserProfileForm(instance=profile)
+    # Get the user's offers
+    user_offers = Post.objects.filter(author_profile=user_profile)
 
-        # Query related posts for the valid user profile
-        posts = Post.objects.filter(author=request.user).order_by('-updated_on')
+    context = {
+        'user': request.user,
+        'user_profile': user_profile,
+        'user_offers': user_offers,
+    }
 
-        template = 'dashboard/user_profile.html'
-        context = {
-            'form': form,
-            'posts': posts,
-            'on_profile_page': True
-        }
-
-        return render(request, template, context)
+    return render(request, 'dashboard/user_profile.html', context)

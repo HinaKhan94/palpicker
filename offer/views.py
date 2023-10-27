@@ -134,7 +134,7 @@ class ContactView(generic.TemplateView):
 
 
 class CreateOfferView(View):
-    template_name = 'create_offer.html'
+    template_name = 'dashboard/create_offer.html'
 
     @method_decorator(login_required)
     def get(self, request):
@@ -148,6 +148,10 @@ class CreateOfferView(View):
             new_post = form.save(commit=False)
             new_post.author = request.user
             new_post.save()
+
+            # success message here
+            messages.success(request, 'Your request has been sent for approval.')
+
             return redirect('user_profile')
         return render(request, self.template_name, {'form': form})
 
@@ -165,7 +169,7 @@ class DeleteOfferView(View):
     """
 
 
-    template_name = 'delete_offer.html'
+    template_name = 'dashboard/delete_offer.html'
 
     def get(self, request, offer_id):
         try:
@@ -196,7 +200,7 @@ class EditOfferView(View):
      allows you to edit the details of an offer using a modal. 
      
     """
-    template_name = 'edit_offer.html'
+    template_name = 'dashboard/edit_offer.html'
 
     def get(self, request, post_id):
         post = Post.objects.get(pk=post_id)
