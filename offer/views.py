@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 
 class PostList(generic.ListView):
@@ -74,14 +75,9 @@ class ContactView(generic.TemplateView):
     Renders Contact page form and submits user data via email to the
     administrator and to the user.
 
-    Contact view is accessed directly via the Contact link in the menu bar,
-    or via the van_detail page.
-
-    If the contact form is accessed directly by the menu bar, the page
+    The contact form is accessed directly by the menu bar, the page
     redirects to the home page.
 
-    If the contact form is accessed by the van_detail page, the email includes
-    the van details and redirects the user back to the van_detail page
     """
     template_name = 'contact.html'
 
@@ -137,6 +133,13 @@ class ContactView(generic.TemplateView):
 
 
 class CreateOfferView(View):
+    
+    """
+    Renders Create Offer form and submits user data to the 
+    Database to be saved
+
+    """
+
     template_name = 'user_profile.html'
 
     def get(self, request):
@@ -151,3 +154,41 @@ class CreateOfferView(View):
             new_post.save()
             return redirect('user_profile')
         return render(request, self.template_name, {'form': form})
+
+
+@login_required
+class DeleteOfferView(View):
+
+    """
+    This view first checks if the user is the author of the offer
+    and whether the offer exists. If not,
+    it raises a 404 error. If it's a POST request,
+    the offer is deleted. Otherwise, it renders the
+    delete confirmation template.
+
+    """
+
+
+    template_name = 'delete_offer.html'
+
+    def get(self, request, offer_id):
+        try:
+            offer = Post.objects.get(pk=offer_id)
+            if offer.author != request.user:
+                raise Http404
+        except Post.DoesNotExist:
+            raise Http404
+
+        return render(request, self.template_name, {'offer': offer})
+
+    def post(self, request, offer_id):
+        try:
+            offer = Post.objects.get(pk=offer_id)
+            if offer.author != request.user:
+                raise Http404
+        except Post.DoesNotExist:
+            raise Http404
+
+        offer.delete()
+        messages.success(request, 'Offer deleted successfully')
+        return redirect('user_profile')
