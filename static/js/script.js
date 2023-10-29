@@ -7,3 +7,8 @@ window.addEventListener('DOMContentLoaded', () => {
     OfferModal.show();
     console.log('modal clicked')
 });
+
+function hideRequestButton() {
+    // 
+    document.querySelector('#make-request-btn').style.display = 'none';
+}

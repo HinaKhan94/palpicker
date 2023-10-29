@@ -64,7 +64,7 @@ class Request(models.Model):
         ordering = ['-date_created']
 
     def __str__(self):
-        return self.post
+        return f"{self.first_name} {self.last_name}"
 
 
 class Contact(models.Model):

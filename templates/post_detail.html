@@ -39,8 +39,10 @@
     </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                <button type="submit" class="btn btn-signup btn-lg" data-bs-toggle="modal" data-bs-target="#request-service">Request Service!</button>
+                {% if not user.is_authenticated %}
+                <button type="submit" id="make-request-btn" class="btn btn-signup btn-lg" data-bs-toggle="modal" data-bs-target="#request-service">Request Service!</button>
                 <br>
+                {% endif %}
                 <!-- to tell the user that their request is awaiting approval -->
                 {% if requested %}
                 <div class="alert alert-success" role="alert">

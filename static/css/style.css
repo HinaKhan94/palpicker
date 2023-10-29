@@ -1,7 +1,19 @@
+
+/*-------General settings--------*/
 body {
-    background-color: #F9FAFC;
-    
+    background-color: #F9FAFC;   
 }
+
+.btn-primary {
+  background-color: #0F6799;
+  border-color: #0F6799;
+}
+
+.btn-danger {
+  background-color: #E84610;
+  border-color: #E84610;
+}
+
 /*-------Navbar--------*/
 .bg-white {
     background-color: #F3C40D!important;
@@ -353,13 +365,14 @@ body {
 
 /*-------User Profile Dashboard------*/
 
-.btn-big {
+.create-btn-big {
   font-size: 500%;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 30px;
   color: #E84610;
   background: #F9FAFC;
   width: 30%;
+  border-color: #212529;
 }
 
 .btn-big i {
@@ -367,6 +380,9 @@ body {
   justify-content: center;
 }
 
+.offer-details-card {
+  background-color: #F3C40D;
+}
 
 
 /*-------Footer------*/

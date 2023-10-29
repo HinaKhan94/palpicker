@@ -30,7 +30,7 @@
             <div class="col-md-12">
                 <div class="col-md-12 create-btn">
                     <h2>Create New Service</h2>
-                    <a href="{% url 'create_offer' %}" class="btn btn-primary">
+                    <a href="{% url 'create_offer' %}" class="btn btn-primary create-btn-big">
                         <i class="fa-solid fa-circle-plus"></i>
                     </a>
                 </div>
@@ -45,25 +45,33 @@
                             <div class="col-12 col-md-8 mt-3">
                                 <ul>
                                     <li>
-                                        <i class="fa-solid fa-hashtag"></i>Title: <strong>
+                                        Title: <strong>
                                             {{ post.title }}</strong></li>
 
-                                    <li><i class="fa-solid fa-truck-front"></i><strong class="booking-card-van-name">
-                                            {{ post.description }}</strong></li>
+                                    <li><i class="fa-regular fa-newspaper"></i>  <strong class="booking-card-van-name">
+                                            {{ post.excerpt }}</strong></li>
 
-                                    <li><i class="fa-solid fa-calendar-days"></i>Booking Date: <strong>
-                                            {{ post.featured_image }}</strong></li>
 
-                                    <li><i class="fa-solid fa-money-bill-1"></i>Price: <strong>
+                                    <li><i class="fa-solid fa-money-bill-1"></i> Price: <strong>
                                             £{{ post.price }}</strong></li>
+                                    
+                                    <li><i class="fa-solid fa-calendar-days"></i> Date Created:
+                                            {{ post.created_on }}</li>
 
-                                    <li><i class="fa-solid fa-pen"></i><small>Last updated:
+                                    <li><i class="fa-solid fa-pen"></i><small> Last updated:
                                             {{ post.updated_on }}</small>
                                     </li>
 
-                                    <li
-                                        class="offer-status {% if post.status == 'Pending' %}pending{% elif post.status == 'Approved' %}approved{% endif %}">
-                                        <i class="fa-solid fa-traffic-light"></i>{{ post.status }}</li>
+                                    <li class="offer-status {% if post.status == '0' %}pending{% elif post.status == '1' %}approved{% endif %}">
+                                        <i class="fa-solid fa-traffic-light"></i>
+                                        {% if post.status == '0' %}
+                                            Pending ({{ post.status }})
+                                        {% elif post.status == '1' %}
+                                            Approved ({{ post.status }})
+                                        {% else %}
+                                            unknown {{ post.status }}
+                                        {% endif %}
+                                    </li>
 
                                 </ul>
 
@@ -102,3 +110,5 @@
             </div><!-- End Booking Items -->
         </div>
 {% endblock %}
+
+
