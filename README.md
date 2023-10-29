@@ -581,24 +581,21 @@ All images added by
 
 - Hero image of 
 - Default image used to display log entries without a featured image: <a href="https://un">Amy Shamblen</a> on <a href="https://unspl">Unsplash</a>.
-- Logo is taken from <a href="https://ww">PNG EGG</a>.
 
 ### Code
 
 Resources and inspiration came from a few sources:
 
 - Especially during the initial setup of the project the Code Institute's 'I Think Therefore I Blog' Django walkthrough project was used to get started with the code.
-- Several past projects were of great help and inspiration to the developer in guiding the implementation of functionality in line with the requirements of PP4 and reaching the MVP stage:
+- Several past projects, youtube videos, google search and Chatgpt were of great help to clarify functions and PEP8 requirements. Also it inspired the developer in implementing the functionality in line with the requirements of PP4 and reaching the MVP stage:
   - <a href="https://www.w3schools.com/">W3 Schools</a>
   - <a href="https://stackoverflow.com">Stack Overflow</a>
-  - <a href="https://developer.mozilla.org/">mdn web docs</a>
-  - <a href="https://docs.djangoproject.com/en/4.2/">Django documentation</a>
 
 ## Acknowledgements
 
 I would like to thank:
 
-- My mentor for his feedback, advice, guidance, and support on this and the previous three projects!
-- Cohort facilitators Kay Welfare and Paul Thomas O'Rirodan, for their general advice on the management of the course, pointing us to a plethora of resources to help with the projects, and always being there to answer questions during the lovely Wednesday morning cohort chats.
-- The invaluable Slack community with 'the usual suspects' that have come through numerous times to help troubleshoot bugs and overcome implementation hurdles.
-- The tutors at tutor support which I, surprisingly, did not need to contact much during this project (the 'Slackers' were just so on the ball!) but when I did they were always quick and efficient at resolving my issues.
+- Medale Oluwafemi for your mentorship.
+- Inspiration from  [rstan-dev](https://github.com/rstan-dev) for the contact page and user profile page design
+- Inspiration from  [Ulrike Riemenschneider](https://github.com/URiem) for the Readme file.
+
