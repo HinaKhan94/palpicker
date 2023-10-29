@@ -40,13 +40,13 @@
 
 ## Introduction
 
-Palpicker- Find your Pal! is a community website where one can offer its services for foreign students in the city of Regensburg, Germany in exchange of money, lunch or friendship. 
+Palpicker- Find your Pal! is a community website where one can offer its services to foreign students in the city of Regensburg, Germany in exchange of money, lunch or friendship. Users can create an account to offer or request a service offered on the platform.
 
 The project was designed as the 4th portfolio project of the Code Institutes Full Stack Diploma Program. It was built using Django, Python, JS, CSS, and HTML. The data are stored in a PostgreSQL database.
 
 ### Project Goals
 
-The goal of the platform is to have students help out other students who are looking for any sort of service in the city of regensburg in exchange of money, social interaction or just pure kindness. The log entries can be edited and deleted by the user who created them. 
+The goal of the platform is to mainly have students/people with similar struggles and experiences, to help out other students who are looking for any sort of service in the city of regensburg in exchange of money, social interaction or just pure kindness. The offers/services can be edited and deleted by the user who created them. 
 
 ### Data Base Design
 
@@ -59,7 +59,11 @@ A `User` Model is provided by Django, and a `Logentry Model` stores the details 
 
 **Future Models**
 
-In the future, the developer would like to add a `Favorites` model, which would allow users to add Log Entries to a list of Favorites and then allow them to be displayed on a separate view from other list-views.
+- In the future, I would like to add a `Favorites` model, which would allow users to add posts to a list of Favorites and then allow them to be displayed on a separate view from other list-views.
+- I would also like to add a `Feedback` model, which would allow users to post review for a specific host/user and give them a rating one a five star rating scale.
+- I would also like to send email notifications to all new registered users and when their posts are approved by the admin.
+
+
 
 ## User Experience - UX
 
@@ -98,7 +102,7 @@ The application was developed considering the Five Planes of User Experience:
 #### User Requirements and Expectations
 
 - Simple and intuitive navigation system and design.
-- Easy access to all functionality of the site.
+- Easy access to all functionalities of the site.
 - All links and features work as expected.
 - Immediate feedback on progress during interaction with site features.
 - Visually appealing responsive design.
@@ -120,11 +124,10 @@ The application was developed considering the Five Planes of User Experience:
 
 **Core Website Functionality**
 
-- Implement a post entry features that allow the user to interact with the site.
 - Implement the registration/login/log out features for access to core site functionality.
-- Implement a form for adding an entry to the log.
+- Implement a form for adding a post to the model.
 - Implement a feature to edit and delete a post.
-- Implement a feature that allows the user to add/edit/delete images to a post.
+- Implement a feature that allows the user to add/edit/delete their user profiles.
 
 **Responsiveness**
 
@@ -132,22 +135,19 @@ The application was developed considering the Five Planes of User Experience:
 
 ### Structure
 
-The website is divided into 10 pages with content depending on whether the user is authenticated or not.
+The website is divided into 11 pages with content depending on whether the user is authenticated or not.
 
 #### Current/Initial Structure
 
-- **Home Page** is visible to both types of users. It includes a list of publically shared trip logs for the user to browse. Unauthenticated users will also see a banner calling them to register, authenticated users will not see the banner.
+- **Home Page** is visible to both types of users. It includes a list of publically shared posts for the user to browse.
 - **Register Page** allows the user to create an account to access the core functionality of the site.
 - **Login/Logout Pages** allow the user to authenticate or log out of their account.
-- **Add Log Entry Page** allows an authenticated user to add a log entry to their account.
+- **Create New Post Page** allows an authenticated user to create a new post to their account.
 - **User Profile Page** allows authenticated user to see all their posts including those with the approved status and those that have not yet been published and are just saved as a draft.
-- **Log Profile Page** allows the user to view all the details of the post, if they are authenticated and it is their post they will see buttons that allow them to access the edit or delete features. They will also see a feature for adding/editing/deleting posts.
+- **User Profile Page** allows the user to view all the details of the post, if they are authenticated and it is their post they will see buttons that allow them to access the edit or delete features. They will also see a feature for adding/editing/deleting posts.
 - **Edit Post Page** displays a prepopulated post form and allows the user to edit their previous inputs.
+- **Contact Page** displays a contact form to authenticated and unauthenticated user to send in any queries to the admin.
 
-
-#### Future pages
-
-- **Favorite Entries Page** allows a user to select/save and display their favorite posts from all publically published posts.
 
 ### Skeleton
 
@@ -210,8 +210,7 @@ The wireframes for the pages listed in the above [Structure](#structure) section
 
 #### Font
 
-
-
+The site uses 'lato' and sans-serif as its fallback font.
 
 
 ## Agile Development
@@ -220,7 +219,7 @@ The development of this project was managed through GitHub issues, milestones, a
 
 ### Sprints
 
-- Sprint 1: Initial Set-up - May 2, 2023 to June , 2023
+- Sprint 1: Initial Set-up - October 15th, 2023 to October 16th, 2023
 
   - Setup CI template
   - Create the project and app
@@ -297,7 +296,7 @@ The development of this project was managed through GitHub issues, milestones, a
 
 ### Header and Navigation
 
-Navbar with logo, page name, and links. Different links are visible for unauthenticated users and authenticated. Active links are rendered in black as opposed to the default grey. On small to medium screens the navigation links are displayed as a collapsible burger menu. A dropdown menu for country categories is available on all screen sizes.
+Navbar with logo, page name, and links. Different links are visible for unauthenticated users and authenticated. On small to medium screens the navigation links are displayed as a collapsible burger menu. 
 
 - **Default navbar for unregistered user**
 
@@ -322,7 +321,7 @@ Navbar with logo, page name, and links. Different links are visible for unauthen
 ### Footer
 
 - Footer with a slogan, links to several of the developer's pages, and a copyright feature.
-- Footer is almost identical on all screen sizes.
+- Footer is identical on all screen sizes.
 
 <img src="static/docs" width="60%">
 
@@ -365,9 +364,9 @@ Home page is same for all users.
 
 <img src="static/docs" width="100%">
 
-**My Log Entries**
+**User Posts**
 
-- Allows registered users to see their log entries including those set to private and those saved as a draft.
+- Allows registered users to see their posts including pending and approved.
 
 ![My Posts](/static/docs)
 
@@ -379,7 +378,7 @@ Home page is same for all users.
 
 **Post Detail View**
 
-The Post Detail view allows both registered and unregistered users to view the details of a Log Entry by clicking on the title and teaser of the log entry card on the various list view pages. The title, featured image, year, and country are displayed in the header. 
+The Post Detail view allows both registered and unregistered users to view the details of a post by clicking on the title of the post on the various list view pages. The title, featured image, user's name and date is also mentioned. 
 
 - View for Registered users with edit/delete buttons
 
@@ -395,41 +394,23 @@ All CRUD functionality is only available to registered users once they are logge
 
 **Create a Post**
 
-Allows the user to create a log entry. The fields included in the form are a title, a country select menu, a year, a description, an optional teaser section, upload of a featured image, a published/draft choice, and a private/public choice.
+Allows the user to create a post. The fields included in the form are a title, description, featured image, excerpt, price 
 
 ![Add a Log Entry](/static/docs)
 
-**Add Images to Post**
 
-Allows the user to add a selection of images to their log entry. The fields here include a caption field and a field for keywords to provide alternative text to the image tag.
-
-![Add an Image](/static/docs)
-
-**Update a Log Entry**
+**Edit a Post**
 
 Allows the user to update a log entry. The form is prefilled with all the details from the original entry.
 
 ![Update a Log Entry](/static/docs)
 
-**Delete a Log Entry**
+**Delete a Post**
 
 Allow the user to delete an entry. The user will be prompted to confirm that they want to delete the entry.
 
 ![Delete a Log Entry](/static/docs/)
 
-**Delete an Image**
-
-The user can delete an image by clicking on the small red wastebasket icon at the bottom of the image, which is only visible to the author of the entry if he/she is logged in. The image is immediately deleted, and the user is not asked to confirm their wish to delete the image.
-
-![Delete an Image](/static/)
-
-**Add a country/region category**
-
-The user can add a country category (or region) should one not be available that would fit a new entry they want to add. A link is displayed at the beginning of the 'Add Log Entry Form'. It links to a separate page with a form to be completed. The category name is then submitted for approval by the page administrator. Below the form, a list of countries currently waiting for approval is displayed.
-
-![Add a Country](/static/docs/)
-
-![Add Country Form](/static/docs/)
 
 ### Success Messages
 

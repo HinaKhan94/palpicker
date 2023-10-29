@@ -1,7 +1,8 @@
 
 /*-------General settings--------*/
 body {
-    background-color: #F9FAFC;   
+    background-color: #F9FAFC;
+    font-family: 'Lato', sans-serif;   
 }
 
 .btn-primary {
