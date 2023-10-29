@@ -1,8 +1,7 @@
 
 /*-------General settings--------*/
 body {
-    background-color: #F9FAFC;
-    font-family: 'Lato', sans-serif;   
+    background-color: #F9FAFC; 
 }
 
 .btn-primary {
@@ -10,10 +9,13 @@ body {
   border-color: #0F6799;
 }
 
-.btn-danger {
+.btn-danger,
+.btn-success {
   background-color: #E84610;
   border-color: #E84610;
 }
+
+
 
 /*-------Navbar--------*/
 
@@ -396,7 +398,8 @@ body {
     background-color: #F3C40D;
 }
 
-footer {
+footer,
+.footer-links {
   color: #212529;
 }
 
@@ -405,6 +408,7 @@ footer {
   font-size: 13px;
   color: #212529;
 }
+
 
 /*-------------- media queries --------------- */
 @media only screen and (min-width: 768px) {
