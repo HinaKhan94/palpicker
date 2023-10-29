@@ -5,8 +5,9 @@
 {% block extra_title %} - {{ user.username }} Profile{% endblock %}
 
 {% block content %}
+
 <section class="bg-light">
-   <!-- ======= Breadcrumbs ======= -->
+   <!------ Breadcrumbs ------>
    <div id="breadcrumbs" class="breadcrumbs">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center">
@@ -16,14 +17,14 @@
             </ol>
         </div>
     </div>
-</div><!-- End Breadcrumbs -->
+</div>
 
     <div class="container">
         <div class="dashboard-title">
             <h1><strong>Welcome {{ user }}:</strong></h1>
         </div>
 
-<!-- ======= Profile Dashboard ======= -->
+<!------ Profile Dashboard ------>
 <div class="text-center">
     <div class="container">
         <div class="row">
@@ -107,7 +108,7 @@
                     </ul>
                 </nav>
                 {% endif %}
-            </div><!-- End Booking Items -->
+            </div>
         </div>
 {% endblock %}
 
