@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -62,24 +62,17 @@
 <!-- ======= Contact Form Section ======= -->
 <div id="login" class="bg-light py-5">
     <div class="container">
-        <!-- Onscreen Messages -->
-        {%  include 'partials/message_onscreen.html' %}
-
+    
         <div class="card-body">
             <div class="contact-form-container mx-auto my-4">
-                <!--{% if slug %}-->
-                <h4 class="enquiry-icon"><i class="fa-solid fa-paper-plane"></i><span> </span>Inquiry for:</h4>
-                <h4>Offer: {{ post.title }}</h4>
-                <h4>Title: {{ oferr.name }}</h4>
+                <h4 class="inquiry-icon"><i class="fa-solid fa-paper-plane"></i><span> </span>Subject:
+                    <input type="text"><br>
                 <br>
-                <!--{% endif %}-->
-                <form
-                    action="{% if post %}{% url 'contact_from_offer' slug=post.slug %}{% else %}{% url 'contact' %}{% endif %}"
-                    method="POST">
+                <form method="POST">
                     {% csrf_token %}
                     {{ contact_form | crispy }}
-                    <input type="submit" name="submit" value="Send Message"
-                        class="btn btn-warning btn-block send-message-btn">
+                    <br>
+                    <button type="submit" class="btn-primary">Submit</button>
                 </form>
             </div>
         </div>

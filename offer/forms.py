@@ -19,23 +19,9 @@ class ContactForm(forms.ModelForm):
     """
     class Meta:
         model = Contact
-        fields = ('name', 'email', 'message',)
+        fields = ['name', 'email', 'message']
 
 
-    """
-    name = forms.CharField(max_length=100)
-    email = forms.EmailField()
-    message = forms.CharField(widget=forms.Textarea)
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.layout = Layout(
-            'name',
-            'email',
-            'message',
-        )
-    """
 class CreateOfferForm(forms.ModelForm):
     """
     """

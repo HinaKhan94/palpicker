@@ -23,9 +23,6 @@ class UserProfilePostList(generic.ListView):
     template_name = 'dashboard/user_profile.html'
     paginate_by = 3
     
-    
-
-
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -80,66 +77,23 @@ class AboutView(generic.TemplateView):
         return context
 
 
-class ContactView(generic.TemplateView):
-    """
-    Renders Contact page form and submits user data via email to the
-    administrator and to the user.
-
-    The contact form is accessed directly by the menu bar, the page
-    redirects to the home page.
-
-    """
+class ContactView(View):
     template_name = 'contact.html'
 
-    def post(self, request, slug=None, *args, **kwargs):
-        user = User.objects.get(username='admin')
-        post = None
+    def get(self, request):
+        contact_form = ContactForm()
+        context = {'contact_form': contact_form}
+        return render(request, self.template_name, context)
 
-        if slug is not None:
-            post = get_object_or_404(Post, slug=slug)
-
-        if request.method == 'POST':
-            contact_form = ContactForm(request.POST)
-            if contact_form.is_valid():
-                name = contact_form.cleaned_data['name']
-                email = contact_form.cleaned_data['email']
-                message = contact_form.cleaned_data['message']
-
-            subject = 'Offer Inquiry'
-            if post is not None:
-                subject += ' ' + post.name
-
-            send_mail(
-                subject,
-                'There has been an inquiry from: ' + name + ' from email: '
-                + email + '. Their message is as follows: "' + message + '." '
-                'An administrator will get back to you within 24 hours.',
-                'admin@palpicker.com',
-                [email, user.email],
-                fail_silently=False
-            )
-
-            messages.success(request, "Your message has been sent! "
-                                      "You will be contacted within 24 hours.")
-            
-            # Save the submission to the database
-            submission = Contact(name=name, email=email, message=message)
-            submission.save()
-            
-            if post is not None:
-                return redirect('post_detail', slug=slug)
-            else:
-                return redirect('home')
+    def post(self, request):
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, "Your message has been sent! You will be contacted within 24 hours.")
+            return redirect('home')  # Redirects to the contact page or another appropriate page after successful submission
         else:
-            contact_form = ContactForm()
-
-        context = {
-            'post': post,
-            'contact_form': contact_form,
-            'slug': slug
-        }
-
-        return render(request, 'contact.html', context)
+            messages.error(request, "There was an error in your submission. Please try again.")
+            return redirect('contact.html')  # Redirects to the contact page in case of an error
 
 
 class CreateOfferView(View):
