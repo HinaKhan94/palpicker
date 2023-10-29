@@ -383,67 +383,67 @@ The Post Detail view allows both registered and unregistered users to view the d
 
 - View for Registered users with edit/delete buttons
 
-![Log Detail View Registered User and Author](/static/docs/logdetailview.png)
+![Log Detail View Registered User and Author](/static/docs/)
 
 - View for Unregistered users without the button features
 
-![Log Detail View Unregistered User or not the Author](/static/docs/detailviewunreg.png)
+![Log Detail View Unregistered User or not the Author](/static/docs)
 
 ### CRUD Functionality
 
 All CRUD functionality is only available to registered users once they are logged in.
 
-**Create a Log Entry**
+**Create a Post**
 
 Allows the user to create a log entry. The fields included in the form are a title, a country select menu, a year, a description, an optional teaser section, upload of a featured image, a published/draft choice, and a private/public choice.
 
-![Add a Log Entry](/static/docs/addtripview.png)
+![Add a Log Entry](/static/docs)
 
-**Add Images to Log Entry**
+**Add Images to Post**
 
 Allows the user to add a selection of images to their log entry. The fields here include a caption field and a field for keywords to provide alternative text to the image tag.
 
-![Add an Image](/static/docs/addimagefeature.png)
+![Add an Image](/static/docs)
 
 **Update a Log Entry**
 
 Allows the user to update a log entry. The form is prefilled with all the details from the original entry.
 
-![Update a Log Entry](/static/docs/viewupdateentry.png)
+![Update a Log Entry](/static/docs)
 
 **Delete a Log Entry**
 
 Allow the user to delete an entry. The user will be prompted to confirm that they want to delete the entry.
 
-![Delete a Log Entry](/static/docs/viewdeleteentry.png)
+![Delete a Log Entry](/static/docs/)
 
 **Delete an Image**
 
 The user can delete an image by clicking on the small red wastebasket icon at the bottom of the image, which is only visible to the author of the entry if he/she is logged in. The image is immediately deleted, and the user is not asked to confirm their wish to delete the image.
 
-![Delete an Image](/static/docs/singleimage.png)
+![Delete an Image](/static/)
 
 **Add a country/region category**
 
 The user can add a country category (or region) should one not be available that would fit a new entry they want to add. A link is displayed at the beginning of the 'Add Log Entry Form'. It links to a separate page with a form to be completed. The category name is then submitted for approval by the page administrator. Below the form, a list of countries currently waiting for approval is displayed.
 
-![Add a Country](/static/docs/addcountryfeature.png)
+![Add a Country](/static/docs/)
 
-![Add Country Form](/static/docs/addcountryform.png)
+![Add Country Form](/static/docs/)
 
 ### Success Messages
 
 Every time a user carries out a function on the website, either as part of the account functionality or the CRUD functionality, a success message will be displayed confirming that the function was carried out successfully. Some of the messages are shown here but this is not an exhaustive list.
 
-![Success Sign In](/static/docs/successmessagesignin.png)
+![Success Sign In](/static/docs/)
 
-![Success Trip Update](/static/docs/tripupdatesuccess.png)
+![Success Trip Update](/static/docs/)
 
-![Success Image Added](/static/docs/successmessageimageadded.png)
+![Success Image Added](/static/docs)
 
-![Success Image Deleted](/static/docs/successmessageimagedeleted.png)
+![Success Image Deleted](/static/do)
 
-![Success Trip Deleted](/static/docs/successmesssagelogentrydeleted.png)
+![Success Trip Deleted](/static/docs/)
 
 ## Future Features
 
@@ -451,7 +451,7 @@ Every time a user carries out a function on the website, either as part of the a
    Creating functionality that lets the user add individual, publically available posts to a list of favorite Log Entries which can then be displayed in a 'My Favorites' View. Implementing this would involve adding a 'Favorite' model to models.py and then creating a view and template that displays the list based on the authenticated user.
 
 2. **Delete Account Feature** -
-   To give users ultimate control over their data a feature should be added that allows users to delete their account. A tutorial on how to do this can be found in this YouTube video <a href="https://www.youtube.com/watch?v=ke1IIHDwCIk">Django Update & Delete Account Tutorial</a>.
+   To give users ultimate control over their data a feature should be added that allows users to delete their account. A tutorial on how to do this can be found in this YouTube video <a href="https://www.youtube.com/">Django Update & Delete Account Tutorial</a>.
 
 3. **Retrieve Password Feature** -
    A feature to allow the user to retrieve/reset their password if they have lost/forgotten it is also quite important and should be added for a more complete user experience.
@@ -499,7 +499,7 @@ Several core packages were used, a few of the most important ones are listed her
 
 ## Testing and Validation
 
-The testing documentation can be found at [TESTING.md](TESTING.md)
+The testing documentation can be found at [TESTING.md]()
 
 ## Deployment & Development
 
@@ -594,13 +594,13 @@ You will need to install all of the packages listed in the requirements file you
 
 ### Media
 
-All images added by the developer to her trip entries are owned by the developer. In addition, credit is to be given to the following parties for images used on the main site of this project:
+All images added by 
 
 **Images:**
 
-- Hero image of a plane taking off at the Aron Islands is also owned by the developer.
-- Default image used to display log entries without a featured image: <a href="https://unsplash.com/@amyshamblen">Amy Shamblen</a> on <a href="https://unsplash.com/photos/E2qx9Ed2qIQ">Unsplash</a>.
-- Logo is taken from <a href="https://www.pngegg.com/en/png-nipeb">PNG EGG</a>.
+- Hero image of 
+- Default image used to display log entries without a featured image: <a href="https://un">Amy Shamblen</a> on <a href="https://unspl">Unsplash</a>.
+- Logo is taken from <a href="https://ww">PNG EGG</a>.
 
 ### Code
 
@@ -608,10 +608,6 @@ Resources and inspiration came from a few sources:
 
 - Especially during the initial setup of the project the Code Institute's 'I Think Therefore I Blog' Django walkthrough project was used to get started with the code.
 - Several past projects were of great help and inspiration to the developer in guiding the implementation of functionality in line with the requirements of PP4 and reaching the MVP stage:
-  - <a href="https://github.com/Kathrin-ddggxh/woohoo-haiku">Woohoo Haiku</a> by Kay Welfare.
-  - <a href="https://github.com/paulie-o74/newsbox86">The Newsbox</a> by Paul Thomas O'Rirodan.
-  - <a href="https://github.com/useriasminna/italianissimo-booking-website">Italianissimo</a> by Iasmina Pal.
-- Throughout the project, the following helpful websites were often frequented for troubleshooting:
   - <a href="https://www.w3schools.com/">W3 Schools</a>
   - <a href="https://stackoverflow.com">Stack Overflow</a>
   - <a href="https://developer.mozilla.org/">mdn web docs</a>
@@ -621,8 +617,7 @@ Resources and inspiration came from a few sources:
 
 I would like to thank:
 
-- My mentor Brian O'Hare for his feedback, advice, guidance, and support on this and the previous three projects!
+- My mentor for his feedback, advice, guidance, and support on this and the previous three projects!
 - Cohort facilitators Kay Welfare and Paul Thomas O'Rirodan, for their general advice on the management of the course, pointing us to a plethora of resources to help with the projects, and always being there to answer questions during the lovely Wednesday morning cohort chats.
 - The invaluable Slack community with 'the usual suspects' that have come through numerous times to help troubleshoot bugs and overcome implementation hurdles.
 - The tutors at tutor support which I, surprisingly, did not need to contact much during this project (the 'Slackers' were just so on the ball!) but when I did they were always quick and efficient at resolving my issues.
-- My husband, Matt, for his encouragement and support along the way.
