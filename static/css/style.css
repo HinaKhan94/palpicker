@@ -15,6 +15,16 @@ body {
 }
 
 /*-------Navbar--------*/
+
+#navbar {
+  position: fixed;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  z-index: 101;
+}
+
 .bg-white {
     background-color: #F3C40D!important;
 }
@@ -55,7 +65,7 @@ body {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: #212529;
 }
 
 .red-o {
@@ -100,7 +110,7 @@ body {
 .breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #4A4A4F;
+  color: #212529;
   content: "/";
 }
 
@@ -181,7 +191,7 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #212529;
     color: white;
     position: relative;
 }
@@ -198,7 +208,7 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #212529;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
@@ -208,7 +218,7 @@ body {
 /*-------Register/login section links------*/
 .post-link {
     text-decoration: none;
-    color: #445261;
+    color: #212529;
 }
 
 .post-link:hover,
@@ -233,7 +243,7 @@ body {
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: #212529;
     text-decoration: underline;
 }
 
@@ -329,11 +339,11 @@ body {
   padding: 0 0 0 60px;
   margin-bottom: 0;
   font-size: 14px;
-  color: #4A4A4F;
+  color: #212529;
 }
 
 .contact .info:hover i {
-  background: #4A4A4F;
+  background: #212529;
   color: #fff;
 }
 
@@ -386,13 +396,13 @@ body {
 }
 
 footer {
-  color: #4A4A4F;
+  color: #212529;
 }
 
 #footer .credits {
   padding-top: 5px;
   font-size: 13px;
-  color: #4A4A4F;
+  color: #212529;
 }
 
 /*-------------- media queries --------------- */

@@ -28,10 +28,10 @@
 
     <!-- Navigation -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">Pal<span class="red-o">p</span>icker<span
-                        class="thin">|</span></span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"></i><span class="brand">Pal<span class="red-o">p</span>icker<span
+                        class="thin"><i class="fa-solid fa-user-group fa-shake"></i></span></span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -60,9 +60,6 @@
                     </li>
                     {% endif %}
                 </ul>
-                <span class="navbar-text text-muted">
-                    {{ user.name }}
-                </span>
             </div>
         </div>
     </nav>
@@ -108,7 +105,6 @@
             <i class="fab fa-facebook-square ms-3"></i>
             <i class="fa-brands fa-github"></i>
             <i class="fa-brands fa-instagram"></i></p>
-        
         <div class="text-center m-0">
             &copy; Copyright <strong><span>Made by Hina Khan</span></strong>. All Rights Reserved
         </div>
