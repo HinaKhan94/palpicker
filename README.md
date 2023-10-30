@@ -46,7 +46,7 @@ The project was designed as the 4th portfolio project of the Code Institutes Ful
 
 ### Project Goals
 
-The goal of the platform is to mainly have students/people with similar struggles and experiences, to help out other students who are looking for any sort of service in the city of regensburg in exchange of money, social interaction or just pure kindness. The offers/services can be edited and deleted by the user who created them. 
+The goal of the platform is to mainly have students/people with similar struggles and experiences, help out other students who are looking for any sort of service/guidance in the city of Regensburg,Germany. As it is a major challenge for almost every international student, in exchange of money, social interaction or just pure kindness. The offers/services can be edited and deleted by the user who created them. 
 
 ### Data Base Design
 
@@ -80,20 +80,19 @@ The application was developed considering the Five Planes of User Experience:
 |                            | 1D  | As a user, I can access different pages on the site, so that I can navigate smoothly through all the functionality of the site.                                                          |
 | **REGISTRATION AND USER**  |     |                                                                                                                                                                                          |
 |                            | 2A  | As a user, I want to be able to register a profile, so I can access the main functionality of the site.                                                                                  |
-|                            | 2B  | As a user, I want to be able to log into my account easily, so I can access my account information.                                                                                      |
+|                            | 2B  | As a user, I want to be able to log into my account easily, so I can access my account.                                                                                      |
 |                            | 2C  | As a user, I want to be able to log out of my account with ease to protect my account information.                                                                                       |
-|                            | 2D  | As a user, I want to be able to delete my account information or request account deletion from the website owner.                                                                        |
-| **MANAGING LOG ENTRIES**   |     |                                                                                                                                                                                          |
-|                            | 3A  | As an authenticated user, I want to be able to add a log entry and choose privacy and draft/publish settings so that I can create a trip log that displays as specified on the site.     |
-|                            | 3B  | As an authenticated user, I want to be able to edit and delete my log entries so that I can customize them as I see fit.                                                                 |
-|                            | 3C  | As an authenticated user, I want to be able to add images to individual log entries so that I can customize the log entry with this added feature.                                       |
-|                            | 3D  | As an authenticated user, I want to be able to delete the images associated with a particular log entry so that I can customize individual entries.                                      |
+| **MANAGING POSTS**   |     |                                                                                                                                                                                          |
+|                            | 3A  | As an authenticated user, I want to be able to create a post.     |
+|                            | 3B  | As an authenticated user, I want to be able to edit and delete my posts so that I can customize them as I see fit.                                                                 |
+|                            | 3C  |                                        |
+|                            | 3D  |                                       |
 | **USER VIEWS**             |     |                                                                                                                                                                                          |
-|                            | 4A  | As a user, I want to be able to see all publically available log entries so that I can browse through them.                                                                              |
-|                            | 4B  | As a user, I want to be able to view the detail of all publically available log entries, so I can learn details about the trip entry.                                                    |
-|                            | 4C  | As a user, I want to be able to search the log entries by country, to see various trips associated with that country.                                                                    |
-|                            | 4D  | As an authenticated user, I want to be able to view all my entries including the current settings on privacy and published/draft status so that I can get a quick overview of my entries |
-|                            | 4E  | As an authenticated user, I want to see feedback on my interactions with the site functionality so that I can confirm my intended action was executed correctly.                         |
+|                            | 4A  | As a user, I want to be able to see all published posts by other users so that I can browse through them.                                                                              |
+|                            | 4B  | As a user, I want to be able to view the detail of all posts made by others, so I can learn details about the services they are offering.                                                    |
+|                            | 4C  | As a user,                                                                    |
+|                            | 4D  | As an authenticated user, I want to be able to view all my posts including the pending approval status so that I can get a quick overview of my posts |
+|                            | 4E  |                         |
 
 #### Target Audience
 
@@ -229,7 +228,7 @@ The development of this project was managed through GitHub issues, milestones, a
   - Setup database
   - Create a base.html
 
-- Sprint 2: LogEntry feature and user authentication - June 1st, 2023 to June 5th, 2023
+- Sprint 2: Post model and user authentication - June 1st, 2023 to June 5th, 2023
 
   - Setup database models
   - Import static files for layout, CSS, JS, and images
@@ -284,7 +283,6 @@ The development of this project was managed through GitHub issues, milestones, a
   - Delete commented code
   - Add test results and images to TESTING.md
   - Add content to the features section in README
-  - Uninstall unnecessary packages (summernote)
   - Add LoginRequiredMixin to the relevant views
   - Carry out final revisions
   - Finalize README.md and TESTING.md
@@ -370,11 +368,6 @@ Home page is same for all users.
 
 ![My Posts](/static/docs)
 
-- The log entry card for these trips will also display the status of the entry (whether it is a draft or published) and the privacy setting (whether it is viewable by the public or private):
-
-![My Posts](/static/docs)
-
-
 
 **Post Detail View**
 
@@ -418,13 +411,9 @@ Every time a user carries out a function on the website, either as part of the a
 
 ![Success Sign In](/static/docs/)
 
-![Success Trip Update](/static/docs/)
+![Success Contact Message](/static/docs/)
 
-![Success Image Added](/static/docs)
-
-![Success Image Deleted](/static/do)
-
-![Success Trip Deleted](/static/docs/)
+![Success Post Approval](/static/docs/)
 
 ## Future Features
 
@@ -440,8 +429,6 @@ Every time a user carries out a function on the website, either as part of the a
 4. **Google Login** -
    Allowing users to register and log in using Google would add ease of use for the user.
 
-5. **Advanced Gallery Functionality** -
-   The gallery section could be improved in a variety of ways. It would be nice to be able to view the images as a gallery that allows them to be enlarged and skipped through. Also adding functionality to edit image details would be useful.
 
 ## Technologies Used
 
