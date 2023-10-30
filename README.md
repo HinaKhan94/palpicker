@@ -375,11 +375,11 @@ The Post Detail view allows both registered and unregistered users to view the d
 
 - View for Registered users with edit/delete buttons
 
-![Log Detail View Registered User and Author](/static/docs/)
+![Post Detail View Registered User and Author](/static/docs/)
 
 - View for Unregistered users without the button features
 
-![Log Detail View Unregistered User or not the Author](/static/docs)
+![Post Detail View Unregistered User or not the Author](/static/docs)
 
 ### CRUD Functionality
 
@@ -389,20 +389,20 @@ All CRUD functionality is only available to registered users once they are logge
 
 Allows the user to create a post. The fields included in the form are a title, description, featured image, excerpt, price 
 
-![Add a Log Entry](/static/docs)
+![Create a Post](/static/docs)
 
 
 **Edit a Post**
 
-Allows the user to update a log entry. The form is prefilled with all the details from the original entry.
+Allows the user to edit a post. The form is prefilled with all the details from the original entry.
 
-![Update a Log Entry](/static/docs)
+![Edit a Post](/static/docs)
 
 **Delete a Post**
 
-Allow the user to delete an entry. The user will be prompted to confirm that they want to delete the entry.
+Allow the user to delete a post. The user will be prompted to confirm that they want to delete the entry.
 
-![Delete a Log Entry](/static/docs/)
+![Delete a Post](/static/docs/)
 
 
 ### Success Messages
@@ -449,18 +449,17 @@ Several core packages were used, a few of the most important ones are listed her
 - django-allauth - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
 - django-crispy-forms - provides a `crispy` filter and `{% crispy %}` tag that allows control of the rendering behavior of Django forms in a very elegant and DRY way.
 - crispy-boostrap4 - Bootstrap4 template pack for django-crispy-forms.
-- coverage - allows to create a coverage report of automated testing.
 
 ### Frameworks & Tools
 
 - Django - used to set up the back-logic and user model on the website.
 - GitHub - used to host the source code of the website. Also contains the record of the Agile development framework set up to plan the project, using issues, milestones, and projects on GitHub.
-- CodeAnywhere - used to write and develop the code for the website, and for committing and pushing code to GitHub.
+- Gitpod - used to write and develop the code for the website, and for committing and pushing code to GitHub.
 - Heroku - used for live website deployment.
 - Cloudinary - is a cloud storage solution for website media and other static files. It also allows for the manipulation and optimization of media delivery.
 - Bootstrap - used throughout the site for responsiveness, layout, and predefined style elements.
 - Balsamiq - used to create the project wireframes.
-- Lucid Chart - used for creating the ERD.
+- MySQL - used for creating the ERD.
 - Google Fonts - used to import fonts for the website.
 - Font Awesome - used for icon features on the site.
 - Canva - used to generate the color scheme.
@@ -566,8 +565,9 @@ All images added by
 
 **Images:**
 
-- Hero image of 
-- Default image used to display log entries without a featured image: <a href="https://un">Amy Shamblen</a> on <a href="https://unspl">Unsplash</a>.
+- Hero image was taken from [Raw Pixels](https://www.rawpixel.com/)
+- Images for offers are taken from google.
+- Default image used to display without a featured image is also taken from google.
 
 ### Code
 

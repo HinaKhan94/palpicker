@@ -60,8 +60,13 @@ body {
   }
 
 .hero-h1 {
-  background-color: #0F6799; 
+  background-color: #F9FAFC; 
+  opacity: 0.9;
+  color: #212529;
+}
 
+.sub-text {
+  font-size: 40px;
 }
 
 .brand {
