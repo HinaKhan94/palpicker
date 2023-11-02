@@ -12,6 +12,7 @@ class RequestForm(forms.ModelForm):
         model = Request
         fields = ('first_name', 'last_name', 'email', 'message',)
 
+
 class ContactForm(forms.ModelForm):
     """
     It is used on the contact page for any user

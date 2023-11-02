@@ -13,14 +13,19 @@ STATUS_CHOICES = (
     ('Completed', 'Completed'),
     )
 
+
 class Post(models.Model):
+
     """
     Model for offer listings.
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="offer_posts")
-    author_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name="offers", null=True, blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name="offer_posts")
+    author_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE,
+                                       related_name="offers",
+                                       null=True, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
@@ -40,10 +45,12 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
 class Request(models.Model):
+
     """
     Model for requesting an offer to be used by the user
-    Fields added to notify the user when the request 
+    Fields added to notify the user when the request
     status is changed
     """
     post = models.ForeignKey(Post, on_delete=models.DO_NOTHING)
