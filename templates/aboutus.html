@@ -30,8 +30,13 @@
                               Palpicker firmly believes that by emphasizing the positive aspects and shared interests, 
                               we can play a part in creating mutually beneficial outcomes for everyone involved. 
                               Let's grow together</p>
+                          {% if user.is_authenticated %}
+                          <a href="{% url 'home' %}">
+                          <button type="submit" class="btn btn-signup btn-lg">Explore our Offers!</button></a>
+                          {% else %}
                           <a href="{% url 'account_signup' %}">
                           <button type="submit" class="btn btn-signup btn-lg">Register now!</button></a>
+                          {% endif %}
                       </div>
                       <div class="about-us">
                           <i class="fa-solid fa-user-group about-icon"></i>
