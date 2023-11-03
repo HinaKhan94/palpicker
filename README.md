@@ -158,8 +158,8 @@ The wireframes for the pages listed in the above [Structure](#structure) section
 
 <details>
 <summary>Unauthorized User</summary>
-<img src="https://res.cloudinary.com/dcw0uahxd" width="80%">
-</details>
+![Unauthorized User](/static/docs/navbar-unregistered.png)
+
 
 <details>
 <summary>Authorized User</summary>
@@ -170,7 +170,7 @@ The wireframes for the pages listed in the above [Structure](#structure) section
 
 <details>
 <summary>Unauthorized User</summary>
-<img src="https://res.cloudinary.c" width="60%">
+<img src="https://r" width="60%">
 </details>
 
 <details>
@@ -205,7 +205,7 @@ The wireframes for the pages listed in the above [Structure](#structure) section
 
 #### Color Scheme
 
-![Color Scheme](/static/docs)
+![Color Scheme](/static/docs/color-pallete.png)
 
 #### Font
 
@@ -298,7 +298,7 @@ Navbar with logo, page name, and links. Different links are visible for unauthen
 
 - **Default navbar for unregistered user**
 
-<img src="static/docs/" width="60%">
+<img src="static/docs/navbar-unregistered.png" width="60%">
 
 - **Navbar for registered user**
 

@@ -5,7 +5,7 @@ const OfferModal = new bootstrap.Modal(document.getElementById('offerModal'));
 window.addEventListener('DOMContentLoaded', () => {
     myModal.show();
     OfferModal.show();
-    console.log('modal clicked')
+    console.log('modal clicked');
 });
 
 function hideRequestButton() {
