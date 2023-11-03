@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 {% load crispy_forms_tags %}
 
@@ -39,8 +39,7 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body" id="description">
-                <!-- The post content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
+            
                 <p class="card-text ">
                     {{ post.description | safe }}
                 </p>
@@ -59,7 +58,7 @@
                 {% endif %}
                 <!-- to tell the user that their request is awaiting approval -->
                 {% if requested %}
-                <div class="alert alert-success" role="alert">
+                <div class="alert alert-success" role="alert" id="approval-msg">
                     Your request is awaiting approval
                 </div>
                 {% else %}
