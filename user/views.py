@@ -13,7 +13,8 @@ from offer.models import Post
 class RegistrationView(CreateView):
     form_class = CustomRegistrationForm
     template_name = 'account/signup.html'
-    success_url = reverse_lazy('dashboard/user_profile.html')  # Redirect to the user's profile page after registration
+    # Redirect to the user's profile page after registration
+    success_url = reverse_lazy('dashboard/user_profile.html')
 
     def form_valid(self, form):
         user = form.save(self.request)
@@ -21,11 +22,13 @@ class RegistrationView(CreateView):
         return super().form_valid(form)
 
 
-
 @login_required
 def user_profile(request):
     # Retrieve the user's profile
-    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+    user_profile, created = (
+        UserProfile.objects
+        .get_or_create(user=request.user)
+    )
 
     # Get the user's offers
     user_offers = Post.objects.filter(author_profile=user_profile)
@@ -41,13 +44,17 @@ def user_profile(request):
 
 @login_required
 def edit_profile(request):
-    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+    user_profile, created = (
+        UserProfile.objects
+        .get_or_create(user=request.user)
+    )
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=user_profile)
         if form.is_valid():
             form.save()
-            return redirect('user_profile')  # Redirect to the user's profile page after editing
+            # Redirect to the user's profile page after editing
+            return redirect('user_profile')
     else:
         form = UserProfileForm(instance=user_profile)
 

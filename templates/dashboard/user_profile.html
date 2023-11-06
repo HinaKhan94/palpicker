@@ -18,12 +18,16 @@
         </div>
     </div>
 </div>
+</section>
+
 
     <div class="container">
         <div class="dashboard-title">
             <h1><strong>Welcome {{ user }}:</strong></h1>
-            <a href="{% url 'edit_profile' %}"><button type="submit">Edit Profile</button></a>
+            <a href="{% url 'edit_profile' %}"></a>
         </div>
+    </div>
+
 
 <!------ Profile Dashboard ------>
 <div class="text-center">
@@ -111,6 +115,8 @@
                 {% endif %}
             </div>
         </div>
+    </div>
+</div>
 {% endblock %}
 
 

@@ -8,7 +8,8 @@ class CustomRegistrationForm(SignupForm):
     email = forms.EmailField(max_length=300)
     phone = forms.CharField(max_length=100, required=False)
     password1 = forms.CharField(widget=forms.PasswordInput, label="Password")
-    password2 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
+    password2 = forms.CharField(widget=forms.PasswordInput,
+                                label="Confirm Password")
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")
@@ -24,10 +25,12 @@ class CustomRegistrationForm(SignupForm):
         user_profile.email = self.cleaned_data['email']
         user_profile.phone = self.cleaned_data['phone']
         user_profile.save()
-        user.set_password(self.cleaned_data['password1'])  # Set the user's password
+        # Set the user's password
+        user.set_password(self.cleaned_data['password1'])
         user.save()
         return user
-    
+
+
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile

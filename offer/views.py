@@ -17,12 +17,14 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6
 
+
 class UserProfilePostList(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=0).order_by('-created_on')
     template_name = 'dashboard/user_profile.html'
     paginate_by = 3
-    
+
+
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):
@@ -37,9 +39,8 @@ class PostDetail(View):
                 "requested": False,
                 "request_form": RequestForm,
             },
-     
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -52,11 +53,8 @@ class PostDetail(View):
             booking = request_form.save(commit=False)
             booking.post = post
             booking.save()
-        else: 
+        else:
             request_form = RequestForm()
-        
-    
-
         return render(
             request,
             "post_detail.html",
@@ -65,8 +63,8 @@ class PostDetail(View):
                 "requested": True,
                 "request_form": request_form,
             },
-     
         )
+
 
 class AboutView(generic.TemplateView):
     template_name = 'aboutus.html'
@@ -89,11 +87,14 @@ class ContactView(View):
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
             contact_form.save()
-            messages.success(request, "Your message has been sent! You will be contacted within 24 hours.")
-            return redirect('home')  # Redirects to the contact page or another appropriate page after successful submission
+            messages.success(request, "Your message has been sent!"
+                             "You will be contacted within 24 hours.")
+            return redirect('home')  # Redirects to the contact page
         else:
-            messages.error(request, "There was an error in your submission. Please try again.")
-            return redirect('contact.html')  # Redirects to the contact page in case of an error
+            messages.error(request, "There was an error"
+                           "in your submission. Please try again.")
+            # Redirects to the contact page in case of an error
+            return redirect('contact.html')
 
 
 class CreateOfferView(View):
@@ -113,11 +114,11 @@ class CreateOfferView(View):
             new_post.save()
 
             # success message here
-            messages.success(request, 'Your request has been sent for approval.')
+            messages.success(request,
+                             'Your request has been sent for approval.')
 
             return redirect('user_profile')
         return render(request, self.template_name, {'form': form})
-
 
 
 class DeleteOfferView(LoginRequiredMixin, View):
@@ -130,7 +131,6 @@ class DeleteOfferView(LoginRequiredMixin, View):
     delete confirmation template.
 
     """
-
 
     template_name = 'dashboard/delete_offer.html'
 
@@ -157,18 +157,18 @@ class DeleteOfferView(LoginRequiredMixin, View):
         return redirect('user_profile')
 
 
-
 class EditOfferView(LoginRequiredMixin, View):
     """
-     allows you to edit the details of an offer using a modal. 
-     
+     allows you to edit the details of an offer using a modal.
+
     """
     template_name = 'dashboard/edit_offer.html'
 
     def get(self, request, offer_slug):
         post = Post.objects.get(slug=offer_slug)
         form = EditOfferForm(instance=post)
-        return render(request, self.template_name, {'form': form, 'post': post})
+        return render(request, self.template_name,
+                      {'form': form, 'post': post})
 
     def post(self, request, offer_slug):
         post = Post.objects.get(slug=offer_slug)
@@ -176,4 +176,5 @@ class EditOfferView(LoginRequiredMixin, View):
         if form.is_valid():
             form.save()
             return redirect('user_profile')
-        return render(request, self.template_name, {'form': form, 'post': post})
+        return render(request, self.template_name,
+                      {'form': form, 'post': post})

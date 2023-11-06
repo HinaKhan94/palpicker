@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Post, Request,  Contact
 from django_summernote.admin import SummernoteModelAdmin
 
+
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
@@ -15,6 +16,7 @@ class PostAdmin(SummernoteModelAdmin):
     def approve_posts(self, request, queryset):
         queryset.update(approved=True)
 
+
 @admin.register(Request)
 class RequestAdmin(admin.ModelAdmin):
     list_display = (
@@ -27,10 +29,10 @@ class RequestAdmin(admin.ModelAdmin):
     def approve_requests(self, request, queryset):
         queryset.update(approved=True)
 
+
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = (
          'name', 'email', 'message'
     )
     search_fields = ['name', 'submission_date', 'message']
-

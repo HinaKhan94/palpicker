@@ -85,14 +85,11 @@ The application was developed considering the Five Planes of User Experience:
 | **MANAGING POSTS**   |     |                                                                                                                                                                                          |
 |                            | 3A  | As an authenticated user, I want to be able to create a post.     |
 |                            | 3B  | As an authenticated user, I want to be able to edit and delete my posts so that I can customize them as I see fit.                                                                 |
-|                            | 3C  |                                        |
-|                            | 3D  |                                       |
 | **USER VIEWS**             |     |                                                                                                                                                                                          |
 |                            | 4A  | As a user, I want to be able to see all published posts by other users so that I can browse through them.                                                                              |
 |                            | 4B  | As a user, I want to be able to view the detail of all posts made by others, so I can learn details about the services they are offering.                                                    |
 |                            | 4C  | As a user,                                                                    |
 |                            | 4D  | As an authenticated user, I want to be able to view all my posts including the pending approval status so that I can get a quick overview of my posts |
-|                            | 4E  |                         |
 
 #### Target Audience
 
