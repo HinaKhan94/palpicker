@@ -1,14 +1,14 @@
 # Palpicker
 
-![Mockup image](/static/docs)
+![Mockup image](/static/docs/mockup.png)
 
 **Live Site:**
 
-[Live webpage](https://)
+[Live webpage](https://8000-hinakhan94-palpicker-sjq20lkroo7.ws-eu105.gitpod.io/)
 
 **Link to Repository:**
 
-[Repository](https://)
+[Repository](https://github.com/HinaKhan94/palpicker)
 
 
 ## Table of Content
@@ -56,6 +56,7 @@ The Entity Relationship Diagram (ERD) illustrates the structure of the database 
 
 A `User` Model is provided by Django, and a `Logentry Model` stores the details of each Post that a user makes, a user can add many posts. 
 
+* [Back to Contents](#contents)
 
 **Future Models**
 
@@ -144,6 +145,7 @@ The website is divided into 11 pages with content depending on whether the user 
 - **Edit Post Page** displays a prepopulated post form and allows the user to edit their previous inputs.
 - **Contact Page** displays a contact form to authenticated and unauthenticated user to send in any queries to the admin.
 
+* [Back to Contents](#contents)
 
 ### Skeleton
 
@@ -206,6 +208,7 @@ The wireframes for the pages listed in the above [Structure](#structure) section
 
 The site uses 'lato' and sans-serif as its fallback font.
 
+* [Back to Contents](#contents)
 
 ## Agile Development
 
@@ -223,13 +226,13 @@ The development of this project was managed through GitHub issues, milestones, a
   - Setup database
   - Create a base.html
 
-- Sprint 2: Post model and user authentication - June 1st, 2023 to June 5th, 2023
+- Sprint 2: Post model and user authentication - October17th, 2023 to October 30th, 2023
 
   - Setup database models
   - Import static files for layout, CSS, JS, and images
   - Create an index.html and view
-  - Add a view for the main LogEntry model
-  - Create a detail-view of the LogEntry model
+  - Add a view for the post model
+  - Create a detail-view of the request model
   - Install allauth and crispy-forms
   - Add allauth templates to the workspace
   - Link up the login, log out, and signup templates to base.html
@@ -237,38 +240,27 @@ The development of this project was managed through GitHub issues, milestones, a
   - Setup a README file with a basic layout
   - Change materialize to bootstrap styling
   - Install crispy-bootstrap4
-  - Add an introduction to README
+  - Style header and footer
+  
 
-- Sprint 3: Customized views and README - June 6th, 2023 to June 17th, 2023
+- Sprint 3: Customized views and README - October 30th, 2023 to November 6th, 2023
 
   - Add ERD and goal section to README
-  - Add form and view to upload an image to logentry_details page
-  - Add form and view to update and delete Log Entries.
-  - Add a privacy filter to index.html to display only public entries
-  - Add UserLogentry view including private entries for authenticated users
-  - Style image gallery
-  - Add delete image functionality
+  - Add delete post functionailty
   - Add content to README: UX, Deployment, and Development
   - Create a separate TESTING file with a layout
 
-- Sprint 4: Refine and customize the CSS start testing - June 17th, 2023 to July 3rd, 2023
+- Sprint 4: Refine and customize the CSS start testing - November 7th, 2023 to November 9th, 2023
 
   - Add Deployment and Development information to README
-  - Style banner/hero image, add a call to action to banner
-  - Style header and footer
   - Add and finalize display of success-messages
-  - Refine styling of the image gallery section
   - First Lighthouse testing
   - Fixes based on Lighthouse testing
-  - Refine styling of Login and Signup Forms
-  - Add wireframes to README
   - Set automated view testing
-  - Add 404.html pages
-  - Add functionality to add/approve countries
-  - Add functionality to sort entries by country category
+  - Add functionality to add/approve posts
   - MVP reached
 
-- Sprint 5: Testing, Final revisions to code and documentation - July 4th to July 10th, 2023
+- Sprint 5: Testing, Final revisions to code and documentation - November 10th to November 15th, 2023
 
   - Set up view, model, and form testing
   - install coverage package and compile coverage report
@@ -284,6 +276,9 @@ The development of this project was managed through GitHub issues, milestones, a
   - Proofread code and documentation
   - Set DEBUG to False
   - Final deploy
+
+* [Back to Contents](#contents)
+
 
 ## Existing Features
 
@@ -370,6 +365,10 @@ The Post Detail view allows both registered and unregistered users to view the d
 ![Post Detail View Unregistered User or not the Author](/static/docs/details-unreg.png)
 ![Post Detail View Unregistered User with Modal](/static/docs/modal-unreg.png)
 
+
+* [Back to Contents](#contents)
+
+
 ### CRUD Functionality
 
 All CRUD functionality is only available to registered users once they are logged in.
@@ -418,6 +417,7 @@ Every time a user carries out a function on the website, either as part of the a
 4. **Google Login** -
    Allowing users to register and log in using Google would add ease of use for the user.
 
+* [Back to Contents](#contents)
 
 ## Technologies Used
 
@@ -545,6 +545,8 @@ Before deployment on Heroku, two files need to be created and be up to date, a `
 - Press Enter to create your local clone.
 
 You will need to install all of the packages listed in the requirements file you can use the following command in the terminal `pip install -r requirements.txt` which will do it for you.
+
+* [Back to Contents](#contents)
 
 ## Credits
 

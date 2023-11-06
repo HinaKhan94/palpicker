@@ -16,12 +16,11 @@
 
 ## TESTS PERFORMED
   The site was thoroughly tested during development. The tests included:
-  1. Incremental testing
-  2. Early user observation test
-  3. Manual user story tests
-  4. HTML, CSS, JSHINT, PYLINT, Lighthouse, PEP8
-  5. Browser Compatability Tests
-  6. Django Automated Tests
+  1. Early user observation test
+  2. Manual user story tests
+  3. HTML, CSS, JSHINT, PYLINT, Lighthouse, PEP8
+  4. Browser Compatability Tests
+  5. Django Automated Tests
 
   ### Manual User Story Tests
   User story tests were conducted systematically, with any failing tests rectified. 
