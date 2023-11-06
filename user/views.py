@@ -31,7 +31,7 @@ def user_profile(request):
     )
 
     # Get the user's offers
-    user_offers = Post.objects.filter(author_profile=user_profile)
+    user_offers = Post.objects.filter(author=request.user)
 
     context = {
         'user': request.user,

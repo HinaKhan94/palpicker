@@ -70,9 +70,9 @@
 
                                     <li class="offer-status {% if post.status == '0' %}pending{% elif post.status == '1' %}approved{% endif %}">
                                         <i class="fa-solid fa-traffic-light"></i>
-                                        {% if post.status == '0' %}
+                                        {% if post.status == 0 %}
                                             Pending ({{ post.status }})
-                                        {% elif post.status == '1' %}
+                                        {% elif post.status == 1 %}
                                             Approved ({{ post.status }})
                                         {% else %}
                                             unknown {{ post.status }}
