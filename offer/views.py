@@ -76,6 +76,10 @@ class AboutView(generic.TemplateView):
 
 
 class ContactView(View):
+    """
+    saves contact form data in the Contact model 
+    when the form is submitted successfully.
+    """
     template_name = 'contact.html'
 
     def get(self, request):
@@ -87,11 +91,11 @@ class ContactView(View):
         contact_form = ContactForm(request.POST)
         if contact_form.is_valid():
             contact_form.save()
-            messages.success(request, "Your message has been sent!"
+            messages.success(request, "Your message has been sent! "
                              "You will be contacted within 24 hours.")
-            return redirect('home')  # Redirects to the contact page
+            return redirect('home')  
         else:
-            messages.error(request, "There was an error"
+            messages.error(request, "There was an error "
                            "in your submission. Please try again.")
             # Redirects to the contact page in case of an error
             return redirect('contact.html')

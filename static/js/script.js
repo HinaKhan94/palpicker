@@ -11,9 +11,3 @@ function hideRequestButton() {
    // 
    document.querySelector('#make-request-btn').style.display = 'none';
 }
-
-setTimeout(function () {
-   let messages = document.getElementById('approval-msg');
-   let alert = new bootstrap.Alert(messages);
-   alert.close();
-}, 2500);

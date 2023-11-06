@@ -153,47 +153,45 @@ The wireframes for the pages listed in the above [Structure](#structure) section
 
 1. **Home Page**
 
-<details>
-<summary>Unauthorized User</summary>
+- Unauthorized User View:
 ![Unauthorized User](/static/docs/navbar-unregistered.png)
 
 
-<details>
-<summary>Authorized User</summary>
-<img src="https://res.cloudinary.c" width="60%">
-</details>
+- Authorized User View:
+![Unauthorized User](/static/docs/navbar-reg.png)
 
-2. **Logentry Detail Page**
+2. **Offer Detail Page**
 
 <details>
 <summary>Unauthorized User</summary>
-<img src="https://r" width="60%">
+<img src="static/docs/details-unreg.png" width="60%">
 </details>
 
 <details>
 <summary>Authorized User</summary>
-<img src="https://res.cloudinary.com/" width="60%">
+<img src="static/docs/details-reg1.png" width="60%">
+<img src="static/docs/details-reg2.png" width="60%">
 </details>
 
 3. **My Profile View**
 
 <details>
 <summary>User Profile View</summary>
-<img src="https://res.cloudinary.com/" width="60%">
+<img src="ht" width="60%">
 </details>
 
 4. **Create a Post View**
 
 <details>
 <summary>Create a Post View</summary>
-<img src="https://res.cloudinary." width="60%">
+<img src="static/docs/createpost.png" width="60%">
 </details>
 
 5. **Sign Up View**
 
 <details>
 <summary>Register</summary>
-<img src="https://res.cloudinary.com/" width="60%">
+<img src="static/docs/register-ss.png" width="60%">
 </details>
 
 6. **404 Page** - a simple 404 Error page is also included (404.html)
@@ -299,26 +297,23 @@ Navbar with logo, page name, and links. Different links are visible for unauthen
 
 - **Navbar for registered user**
 
-<img src="static/docs" width="60%">
+<img src="static/docs/navbar-reg.png" width="60%">
 
 - **Navbar on mobile**
 
-<img src="static/docs" width="40%">
+<img src="static/docs/mobile.png" width="40%">
 
 - **Navbar expanded on mobile**
 
-<img src="static/docs" width="40%">
+<img src="static/docs/mobileexp.png" width="40%">
 
-- **Navbar expanded dropdown menu**
-
-<img src="static/docs/" width="40%">
 
 ### Footer
 
 - Footer with a slogan, links to several of the developer's pages, and a copyright feature.
 - Footer is identical on all screen sizes.
 
-<img src="static/docs" width="60%">
+<img src="static/docs/footer.png" width="60%">
 
 ### Account Features
 
@@ -327,19 +322,19 @@ Navbar with logo, page name, and links. Different links are visible for unauthen
 - Allows a user to sign up
 - Fields include Username, Email (optional), Password, and Password confirmation
 
-<img src="static/docs" width="80%">
+<img src="static/docs/register-ss.png" width="80%">
 
 **Login to an account**
 
-- Allows a user to access their information
+- Allows a user to login their account
 
-<img src="static/docs" width="80%">
+<img src="static/docs/login-ss.png" width="80%">
 
 **Log out of an account**
 
-- Allows a user to exit their account
+- Allows a user to logout of their account
 
-<img src="static/docs" width="60%">
+<img src="static/docs/logout.png" width="60%">
 
 ### Main Views
 
@@ -347,17 +342,12 @@ Navbar with logo, page name, and links. Different links are visible for unauthen
 
 Home page is same for all users.
 
-- **Vertical Mobile View for Unregistered Users**
+- **Home Page for Unregistered Users**
 
-<img src="static/docs" width="40%">
+<img src="static/docs/home1-ss.png" width="40%">
+<img src="static/docs/home2-ss.png" width="40%">
 
-- **Horizontal Movile View for Unregistered Users**
 
-<img src="static/docs" width="60%">
-
-- **Desktop View of Home Page for Registered Users**
-
-<img src="static/docs" width="100%">
 
 **User Posts**
 
@@ -370,13 +360,15 @@ Home page is same for all users.
 
 The Post Detail view allows both registered and unregistered users to view the details of a post by clicking on the title of the post on the various list view pages. The title, featured image, user's name and date is also mentioned. 
 
-- View for Registered users with edit/delete buttons
+- View for Registered users with a contact button and request form.
 
-![Post Detail View Registered User and Author](/static/docs/)
+![Post Detail View Registered User and Author](/static/docs/details-reg1.png)
+![Post Detail View Registered User and Author](/static/docs/details-reg2.png)
 
-- View for Unregistered users without the button features
+- View for Unregistered users without the request form and a modal asking to register or login
 
-![Post Detail View Unregistered User or not the Author](/static/docs)
+![Post Detail View Unregistered User or not the Author](/static/docs/details-unreg.png)
+![Post Detail View Unregistered User with Modal](/static/docs/modal-unreg.png)
 
 ### CRUD Functionality
 
@@ -386,20 +378,20 @@ All CRUD functionality is only available to registered users once they are logge
 
 Allows the user to create a post. The fields included in the form are a title, description, featured image, excerpt, price 
 
-![Create a Post](/static/docs)
+![Create a Post](/static/docs/createpost.png)
 
 
 **Edit a Post**
 
 Allows the user to edit a post. The form is prefilled with all the details from the original entry.
 
-![Edit a Post](/static/docs)
+![Edit a Post](/static/docs/editpost.png)
 
 **Delete a Post**
 
 Allow the user to delete a post. The user will be prompted to confirm that they want to delete the entry.
 
-![Delete a Post](/static/docs/)
+![Delete a Post](/static/docs/deletepost.png)
 
 
 ### Success Messages
