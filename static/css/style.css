@@ -10,8 +10,8 @@ body {
 
 .btn-danger,
 .btn-success {
-	background-color: #E84610;
-	border-color: #E84610;
+	background-color: #A2310B;
+	border-color: #A2310B;
 }
 
 
@@ -75,7 +75,7 @@ header.hero-image .site-heading {
 }
 
 .red-o {
-	color: #E84610;
+	color: #A2310B;
 }
 
 .thin {
@@ -110,7 +110,7 @@ header.hero-image .site-heading {
 }
 
 .breadcrumbs ol li a {
-	color: #E84610;
+	color: #A2310B;
 }
 
 .breadcrumbs ol li+li::before {
@@ -142,7 +142,7 @@ header.hero-image .site-heading {
 }
 
 .btn-signup {
-	background-color: #E84610;
+	background-color: #A2310B;
 	color: #fff;
 }
 
@@ -229,7 +229,7 @@ header.hero-image .site-heading {
 
 .post-link:hover,
 .page-link {
-	color: #E84610;
+	color: #A2310B;
 }
 
 .post-title {
@@ -243,7 +243,7 @@ header.hero-image .site-heading {
 }
 
 .link {
-	color: #E84610;
+	color: #A2310B;
 	text-decoration: none;
 }
 
@@ -254,14 +254,14 @@ header.hero-image .site-heading {
 }
 
 .btn-like {
-	color: #E84610;
+	color: #A2310B;
 	border: none;
 	background: transparent;
 }
 
 .btn-like:hover,
 .btn-like:active {
-	color: #E84610;
+	color: #A2310B;
 	background: transparent;
 	border: none;
 }
@@ -321,7 +321,7 @@ header.hero-image .site-heading {
 
 .contact .info i {
 	font-size: 20px;
-	color: #E84610;
+	color: #A2310B;
 	float: left;
 	width: 44px;
 	height: 44px;
@@ -338,7 +338,7 @@ header.hero-image .site-heading {
 	font-size: 20px;
 	font-weight: 600;
 	margin-bottom: 10px;
-	color: #E84610;
+	color: #A2310B;
 }
 
 .contact .info p {
@@ -371,7 +371,7 @@ header.hero-image .site-heading {
 }
 
 .inquiry-icon {
-	color: #E84610;
+	color: #A2310B;
 }
 
 /*-------User Profile Dashboard------*/
@@ -380,7 +380,7 @@ header.hero-image .site-heading {
 	font-size: 500%;
 	margin-top: 30px;
 	margin-bottom: 30px;
-	color: #E84610;
+	color: #A2310B;
 	background: #F9FAFC;
 	width: 30%;
 	border-color: #212529;

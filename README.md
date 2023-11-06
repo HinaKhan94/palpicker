@@ -11,7 +11,7 @@
 [Repository](https://github.com/HinaKhan94/palpicker)
 
 
-## Table of Content
+## CONTENTS
 
 - [Palpicker](#pal-picker)
   - [Table of Content](#table-of-content)
@@ -74,12 +74,12 @@ The application was developed considering the Five Planes of User Experience:
 
 | EPIC                       | ID  | User Story                                                                                                                                                                               |
 | -------------------------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **CONTENT AND NAVIGATION** |     |                                                                                                                                                                                          |
+| **PROJECT CONTENT AND NAVIGATION** |     |                                                                                                                                                                                          |
 |                            | 1A  | As a user, I want to see a navigation menu so I can easily move through the site.                                                                                                        |
 |                            | 1B  | As a user, I want to see relevant information about the site and its content easily so I can decide if I want to register an account                                                     |
 |                            | 1C  | As a user, I want to see an intuitive and visually pleasing design that matches the intent of the website.                                                                               |
 |                            | 1D  | As a user, I can access different pages on the site, so that I can navigate smoothly through all the functionality of the site.                                                          |
-| **REGISTRATION AND USER**  |     |                                                                                                                                                                                          |
+| **ACCOUNT REGISTRATION AND USER**  |     |                                                                                                                                                                                          |
 |                            | 2A  | As a user, I want to be able to register a profile, so I can access the main functionality of the site.                                                                                  |
 |                            | 2B  | As a user, I want to be able to log into my account easily, so I can access my account.                                                                                      |
 |                            | 2C  | As a user, I want to be able to log out of my account with ease to protect my account information.                                                                                       |
@@ -409,7 +409,7 @@ Every time a user carries out a function on the website, either as part of the a
    Creating functionality that lets the user add individual, publically available posts to a list of favorite Log Entries which can then be displayed in a 'My Favorites' View. Implementing this would involve adding a 'Favorite' model to models.py and then creating a view and template that displays the list based on the authenticated user.
 
 2. **Delete Account Feature** -
-   To give users ultimate control over their data a feature should be added that allows users to delete their account. A tutorial on how to do this can be found in this YouTube video <a href="https://www.youtube.com/">Django Update & Delete Account Tutorial</a>.
+   To give users ultimate control over their data a feature should be added that allows users to delete their account.
 
 3. **Retrieve Password Feature** -
    A feature to allow the user to retrieve/reset their password if they have lost/forgotten it is also quite important and should be added for a more complete user experience.
