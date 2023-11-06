@@ -18,13 +18,6 @@ class PostList(generic.ListView):
     paginate_by = 6
 
 
-class UserProfilePostList(generic.ListView):
-    model = Post
-    queryset = Post.objects.filter(status=0).order_by('-created_on')
-    template_name = 'dashboard/user_profile.html'
-    paginate_by = 3
-
-
 class PostDetail(View):
 
     def get(self, request, slug, *args, **kwargs):

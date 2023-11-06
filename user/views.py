@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
+from django.core.paginator import Paginator
+from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomRegistrationForm, UserProfileForm
@@ -33,10 +35,16 @@ def user_profile(request):
     # Get the user's offers
     user_offers = Post.objects.filter(author=request.user)
 
+    items_per_page = 3
+    paginator = Paginator(user_offers, items_per_page)
+    page_number = request.GET.get('page')
+    # Get the Page object for the current page
+    page = paginator.get_page(page_number)
+
     context = {
         'user': request.user,
         'user_profile': user_profile,
-        'user_offers': user_offers,
+        'user_offers': page,
     }
 
     return render(request, 'dashboard/user_profile.html', context)
