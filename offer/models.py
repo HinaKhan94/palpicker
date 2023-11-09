@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 from datetime import datetime, timedelta
 from django.utils import timezone
-from user.models import UserProfile
+#from user.models import UserProfile
 
 # status zero as draft and 1 as published for offer
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -24,9 +24,6 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE,
                                related_name="offer_posts")
-    author_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE,
-                                       related_name="offers",
-                                       null=True, blank=True)
     updated_on = models.DateTimeField(auto_now=True)
     description = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')

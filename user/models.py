@@ -1,3 +1,4 @@
+"""
 from django.db import models
 from django.contrib.auth.models import User
 from django.dispatch import receiver
@@ -30,3 +31,4 @@ def create_user_profile(sender, instance, created, **kwargs):
         user_profile.name = instance.username
         user_profile.email = instance.email
         user_profile.save()
+"""

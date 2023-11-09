@@ -5,11 +5,12 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CustomRegistrationForm, UserProfileForm
+from .forms import CustomRegistrationForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-from .models import UserProfile
+#from .models import UserProfile
 from offer.models import Post
+from django.contrib.auth.models import User
 
 
 class RegistrationView(CreateView):
@@ -27,10 +28,10 @@ class RegistrationView(CreateView):
 @login_required
 def user_profile(request):
     # Retrieve the user's profile
-    user_profile, created = (
-        UserProfile.objects
-        .get_or_create(user=request.user)
-    )
+    #user_profile, created = (
+        #User.objects
+        #.get_or_create(user=request.user)
+    #)
 
     # Get the user's offers
     user_offers = Post.objects.filter(author=request.user)
@@ -49,25 +50,3 @@ def user_profile(request):
 
     return render(request, 'dashboard/user_profile.html', context)
 
-
-@login_required
-def edit_profile(request):
-    user_profile, created = (
-        UserProfile.objects
-        .get_or_create(user=request.user)
-    )
-
-    if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=user_profile)
-        if form.is_valid():
-            form.save()
-            # Redirect to the user's profile page after editing
-            return redirect('user_profile')
-    else:
-        form = UserProfileForm(instance=user_profile)
-
-    context = {
-        'user_profile': user_profile,
-        'form': form,
-    }
-    return render(request, 'dashboard/edit_profile.html', context)

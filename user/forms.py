@@ -1,6 +1,6 @@
 from django import forms
 from allauth.account.forms import SignupForm
-from .models import UserProfile
+#from .models import UserProfile
 
 
 class CustomRegistrationForm(SignupForm):
@@ -30,8 +30,9 @@ class CustomRegistrationForm(SignupForm):
         user.save()
         return user
 
-
+"""
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['name', 'email', 'phone']
+"""
