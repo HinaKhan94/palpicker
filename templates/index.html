@@ -4,16 +4,16 @@
    <div class="row">
       <!-- Services Column -->
       <div class="col-12 mt-3 left">
-         <div class="row d-flex">
+         <div class="row">
             <h1 class="offer-h1">Our Offers</h1>
             {% for post in post_list %}
-            <div class="col-md-4 flex-fill">
+            <div class="col-md-4">
                <div class="card mb-4">
                   <div class="card-body">
                      <div class="image-container">
                         {% if "placeholder" in post.featured_image.url %}
                         <img class="card-img-top"
-                           src="/static/media/image-post.jpeg" alt="image of regensburg">
+                           src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699529788/static/media/image-post.7ce052382349.jpg" alt="image of regensburg">
                         {% else %}
                         <img class="card-img-top" src=" {{ post.featured_image.url }}" 
                            alt="image of regensburg">
@@ -23,7 +23,7 @@
                         </div>
                      </div>
                      <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                        <h2 class="card-title">{{ post.title }}</h2>
+                        <h2 class="card-title text-truncate">{{ post.title }}</h2>
                         <p class="card-text">{{ post.excerpt }}</p>
                         <p class="card-text">{{ post.price }}</p>
                      </a>
@@ -34,12 +34,14 @@
             </div>
             {% if forloop.counter|divisibleby:3 %}
          </div>
-         <div class="row d-flex">
+         <div class="row">
             {% endif %}
             {% endfor %}
          </div>
       </div>
    </div>
+   <br>
+   <br>
    {% if is_paginated %}
    <nav aria-label="Page navigation">
       <ul class="pagination justify-content-center">

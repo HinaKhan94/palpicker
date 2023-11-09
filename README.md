@@ -4,7 +4,7 @@
 
 **Live Site:**
 
-[Live webpage](https://8000-hinakhan94-palpicker-sjq20lkroo7.ws-eu105.gitpod.io/)
+[Live webpage](https://palpicker-cfd61499c0a5.herokuapp.com/)
 
 **Link to Repository:**
 
