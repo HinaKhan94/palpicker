@@ -4,10 +4,10 @@
    <div class="row">
       <!-- Services Column -->
       <div class="col-12 mt-3 left">
-         <div class="row">
+         <div class="row d-flex">
             <h1 class="offer-h1">Our Offers</h1>
             {% for post in post_list %}
-            <div class="col-md-4">
+            <div class="col-md-4 flex-fill">
                <div class="card mb-4">
                   <div class="card-body">
                      <div class="image-container">
@@ -34,7 +34,7 @@
             </div>
             {% if forloop.counter|divisibleby:3 %}
          </div>
-         <div class="row">
+         <div class="row d-flex">
             {% endif %}
             {% endfor %}
          </div>
