@@ -91,7 +91,7 @@ class ContactView(View):
             messages.error(request, "There was an error "
                            "in your submission. Please try again.")
             # Redirects to the contact page in case of an error
-            return redirect('contact.html')
+            return redirect('contact')
 
 
 class CreateOfferView(View):

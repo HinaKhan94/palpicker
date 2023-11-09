@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 from datetime import datetime, timedelta
 from django.utils import timezone
@@ -39,6 +40,10 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     approved = models.BooleanField(default=False)
 
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Post, self).save(*args, **kwargs)
+    
     class Meta:
         ordering = ['-created_on']
 
