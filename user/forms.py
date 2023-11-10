@@ -3,7 +3,7 @@ from allauth.account.forms import SignupForm
 
 
 class CustomRegistrationForm(SignupForm):
-    name = forms.CharField(max_length=200)
+    name = forms.CharField(max_length=200, label="username")
     email = forms.EmailField(max_length=300)
     phone = forms.CharField(max_length=100, required=False)
     password1 = forms.CharField(widget=forms.PasswordInput, label="Password")

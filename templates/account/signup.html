@@ -32,10 +32,20 @@
     <div class="col-md-8 mt-3 offset-md-2">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        <!--{{ form.as_p }}-->
+        {{ form.username.label_tag }}<br>{{ form.username }}
+        <br>
+        {{ form.email.label_tag }}<br>{{ form.email }}
+        <br>
+        {{ form.password1.label_tag }}<br>{{ form.password1 }}
+        <br>
+        {{ form.password2.label_tag }}<br>{{ form.password2 }}
+        <br>
+
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
+        <br>
         <button class="btn btn-signup right" type="submit">{% trans "Register Now" %} &raquo;</button>
       </form>
     </div>

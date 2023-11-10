@@ -84,8 +84,8 @@ class CreateRequestView(LoginRequiredMixin, CreateView):
     his view ensures that the user_fk
     field of the newly created request
     is set to the current user before saving the request.
-
     """
+
     model = Request
     form_class = RequestForm
     template_name = 'post_detail.html'
@@ -98,13 +98,10 @@ class CreateRequestView(LoginRequiredMixin, CreateView):
         form.instance.user_fk = self.request.user
         return super().form_valid(form)
 
-    def get_object(self, queryset=None):
-        return get_object_or_404(Post, slug=self.kwargs['slug'])
-
-    def get_success_url(self):
-        success_url = reverse('user_profile')
-        print("Success URL:", success_url)
-        return success_url
+        request_instance = self.object
+        request_instance.user_fk = self.request.user
+        request_instance.save()
+        return response
 
 
 class ContactView(View):
