@@ -56,6 +56,8 @@ The Entity Relationship Diagram (ERD) illustrates the structure of the database 
 
 A `User` Model is provided by Django, and a `Logentry Model` stores the details of each Post that a user makes, a user can add many posts. 
 
+A '`UserProfile` Model was also created but due to the repitition of the data, all instances of userprofile model was removed from the code.
+
 * [Back to Contents](#contents)
 
 **Future Models**
@@ -65,6 +67,7 @@ A `User` Model is provided by Django, and a `Logentry Model` stores the details 
 - I would also like to send email notifications to all new registered users and when their posts are approved by the admin.
 
 
+* [Back to Contents](#contents)
 
 ## User Experience - UX
 
@@ -143,6 +146,7 @@ The website is divided into 11 pages with content depending on whether the user 
 - **User Profile Page** allows authenticated user to see all their posts including those with the approved status and those that have not yet been published and are just saved as a draft.
 - **User Profile Page** allows the user to view all the details of the post, if they are authenticated and it is their post they will see buttons that allow them to access the edit or delete features. They will also see a feature for adding/editing/deleting posts.
 - **Edit Post Page** displays a prepopulated post form and allows the user to edit their previous inputs.
+- **Delete Post Page** allows the user to delete their post with a confirmation message to delete.
 - **Contact Page** displays a contact form to authenticated and unauthenticated user to send in any queries to the admin.
 
 * [Back to Contents](#contents)
@@ -453,6 +457,8 @@ Several core packages were used, a few of the most important ones are listed her
 - Font Awesome - used for icon features on the site.
 - Canva - used to generate the color scheme.
 
+* [Back to Contents](#contents)
+
 ## Testing and Validation
 
 The testing documentation can be found at [TESTING.md](https://github.com/HinaKhan94/palpicker/blob/main/TESTING.md)
@@ -518,6 +524,8 @@ Before deployment on Heroku, two files need to be created and be up to date, a `
 - If you are using Cloudinary storage you also need to copy your personal `CLOUDINARY_URL` into these fields. <br>
 - In addition, you may need the key `PORT` with value `8000`.
 
+* [Back to Contents](#contents)
+
 **Connecting to GitHub and Deploy**
 
 - On the Heroku Dashboard select the app you just created and then select the "Deploy" tab.
@@ -552,8 +560,6 @@ You will need to install all of the packages listed in the requirements file you
 
 ### Media
 
-All images added by 
-
 **Images:**
 
 - Hero image was taken from [Raw Pixels](https://www.rawpixel.com/)
@@ -577,3 +583,4 @@ I would like to thank:
 - Inspiration from  [rstan-dev](https://github.com/rstan-dev) for the contact page and user profile page design
 - Inspiration from  [Ulrike Riemenschneider](https://github.com/URiem) for the Readme file.
 
+* [Back to Contents](#contents)

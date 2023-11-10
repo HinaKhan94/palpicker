@@ -26,11 +26,17 @@
   User story tests were conducted systematically, with any failing tests rectified. 
   <details>
     <summary>Click to View Manual User Story Test Evidence</summary>
+    <br>
       - <img src="static/docs/test2-tests.png" width="60%">
+      <br>
       - <img src="static/docs/test3.tests.png" width="60%">
+      <br>
       - <img src="static/docs/test4.tests.png" width="60%">
+      <br>
       - <img src="static/docs/test5.tests.png" width="60%">
+      <br>
       - <img src="static/docs/test6.tests.png" width="60%">
+      <br>
     
 
   </details>
@@ -42,10 +48,15 @@
 
   <details>
     <summary>Click to View HTML Test Evidence</summary>
+    <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606583/homepage.htmlss_ht4xvv.png" width="60%">
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606582/contact.htmlss_kpqiyv.png" width="60%">
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606563/aboutus.htmlss_bjaqlt.png" width="60%">
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606583/userprofile.htmlss_cwnrjv.png" width="60%">
+      <br>
       - <img src="">
       - <img src="">
       - <img src="">
@@ -84,17 +95,29 @@
   <details>
     <summary>Click to View PYLINT Test Evidence</summary>
       - Views.py from User App
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607678/views_user_lwffdj.png" width="60%">
+      <br>
       - Views.py from Offer App
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607679/views.py_offer_pykqqz.png" width="60%">
+      <br>
       - Models.py from Offer App
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607679/models.py_offer_u3ymiy.png" width="60%">
+      <br>
       - Forms.py from Offer App
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607680/forms.py_offer_xewgwb.png" width="60%">
+      <br>
       - Forms.py from User App
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607680/forms_user_vhvbpv.png" width="60%">
+      <br>
       - Urls.py from Offer App
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607681/url_offer_nt0mhe.png" width="60%">
+      <br>
 
   </details>
 
@@ -107,7 +130,9 @@
   <details>
     <summary>Click to View LightHouse Test Evidence</summary>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699608482/desktopview_sm23vl.png" width="60%">
+      <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699608482/mobileview_pou7me.png" width="60%">
+      <br>
 
   </details>
 
@@ -130,9 +155,13 @@
   <details>
     <summary>Click to View Browser Test Evidence</summary>
       - <img src="static/docs/chrome.test.png" width="60%">
+      <br>
       - <img src="static/docs/edge-test.png" width="60%">
+      <br>
       - <img src="static/docs/mozillafirefox-test.png" width="60%">
+      <br>
       - <img src="static/docs/safari-test.png" width="60%">
+      <br>
       
 
   </details>
