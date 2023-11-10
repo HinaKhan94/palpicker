@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
-from .models import Post, Contact
+from .models import Post, Contact, Request
 from .forms import RequestForm, ContactForm, CreateOfferForm, EditOfferForm
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import CreateView
 from django.utils.decorators import method_decorator
 from django.http import Http404
 
@@ -19,7 +20,16 @@ class PostList(generic.ListView):
 
 
 class PostDetail(View):
+    """
+    his view handles both GET and POST
+    requests for a specific Post. In the case of a
+    GET request, it displays the details of the
+    Post along with a form for making a request.
+    In the case of a POST request, it processes
+    the form submission, creating a new Request
+    associated with the Post.
 
+    """
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -68,10 +78,40 @@ class AboutView(generic.TemplateView):
         return context
 
 
+class CreateRequestView(LoginRequiredMixin, CreateView):
+    """
+    the view for creating requests
+    his view ensures that the user_fk
+    field of the newly created request
+    is set to the current user before saving the request.
+
+    """
+    model = Request
+    form_class = RequestForm
+    template_name = 'post_detail.html'
+    context_object_name = 'post'
+
+    def form_valid(self, form):
+        print("Form is valid")
+        post = self.get_object()
+        form.instance.post = post
+        form.instance.user_fk = self.request.user
+        return super().form_valid(form)
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(Post, slug=self.kwargs['slug'])
+
+    def get_success_url(self):
+        success_url = reverse('user_profile')
+        print("Success URL:", success_url)
+        return success_url
+
+
 class ContactView(View):
     """
-    saves contact form data in the Contact model 
+    saves contact form data in the Contact model
     when the form is submitted successfully.
+
     """
     template_name = 'contact.html'
 
@@ -86,7 +126,7 @@ class ContactView(View):
             contact_form.save()
             messages.success(request, "Your message has been sent! "
                              "You will be contacted within 24 hours.")
-            return redirect('home')  
+            return redirect('home')
         else:
             messages.error(request, "There was an error "
                            "in your submission. Please try again.")
@@ -95,6 +135,12 @@ class ContactView(View):
 
 
 class CreateOfferView(View):
+    """
+    creates a new offer for the user with the
+    fields shown to the user for a successful
+    offer creation
+
+    """
     template_name = 'dashboard/create_offer.html'
 
     @method_decorator(login_required)
@@ -110,7 +156,7 @@ class CreateOfferView(View):
             new_post.author = request.user
             new_post.save()
 
-            # success message here
+            # success message
             messages.success(request,
                              'Your request has been sent for approval.')
 
@@ -157,6 +203,8 @@ class DeleteOfferView(LoginRequiredMixin, View):
 class EditOfferView(LoginRequiredMixin, View):
     """
      allows you to edit the details of an offer using a modal.
+     the field are prepopulated with the
+     old information
 
     """
     template_name = 'dashboard/edit_offer.html'

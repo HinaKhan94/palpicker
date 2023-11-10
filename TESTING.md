@@ -26,11 +26,11 @@
   User story tests were conducted systematically, with any failing tests rectified. 
   <details>
     <summary>Click to View Manual User Story Test Evidence</summary>
-      - <img src="static/docs/test2-tests.png">
-      - <img src="static/docs/test3.tests.png">
-      - <img src="static/docs/test4.tests.png">
-      - <img src="static/docs/test5.tests.png">
-      - <img src="static/docs/test6.tests.png">
+      - <img src="static/docs/test2-tests.png" width="60%">
+      - <img src="static/docs/test3.tests.png" width="60%">
+      - <img src="static/docs/test4.tests.png" width="60%">
+      - <img src="static/docs/test5.tests.png" width="60%">
+      - <img src="static/docs/test6.tests.png" width="60%">
     
 
   </details>
@@ -42,10 +42,10 @@
 
   <details>
     <summary>Click to View HTML Test Evidence</summary>
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606583/homepage.htmlss_ht4xvv.png" width="60%">
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606582/contact.htmlss_kpqiyv.png" width="60%">
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606563/aboutus.htmlss_bjaqlt.png" width="60%">
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606583/userprofile.htmlss_cwnrjv.png" width="60%">
       - <img src="">
       - <img src="">
       - <img src="">
@@ -62,7 +62,7 @@
 
   <details>
     <summary>Click to View CSS Test Evidence</summary>
-      - <img src="static/docs/css-test.png">
+      - <img src="static/docs/css-test.png" width="60%">
   </details>
 
    * [Back to Contents](#contents)
@@ -72,7 +72,7 @@
 
   <details>
     <summary>Click to View JSHINT Test Evidence</summary>
-      - <img src="https:/">
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606885/jshint_cjkrfd.png" width="60%">
 
   </details>
 
@@ -83,16 +83,18 @@
 
   <details>
     <summary>Click to View PYLINT Test Evidence</summary>
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
-     ">
+      - Views.py from User App
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607678/views_user_lwffdj.png" width="60%">
+      - Views.py from Offer App
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607679/views.py_offer_pykqqz.png" width="60%">
+      - Models.py from Offer App
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607679/models.py_offer_u3ymiy.png" width="60%">
+      - Forms.py from Offer App
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607680/forms.py_offer_xewgwb.png" width="60%">
+      - Forms.py from User App
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607680/forms_user_vhvbpv.png" width="60%">
+      - Urls.py from Offer App
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699607681/url_offer_nt0mhe.png" width="60%">
 
   </details>
 
@@ -104,8 +106,8 @@
 
   <details>
     <summary>Click to View LightHouse Test Evidence</summary>
-      - <img src="https:/">
-      - <img src="https:/">
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699608482/desktopview_sm23vl.png" width="60%">
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699608482/mobileview_pou7me.png" width="60%">
 
   </details>
 
@@ -116,7 +118,7 @@
 
   <details>
     <summary>Click to View PEP8 Evidence</summary>
-      - <img src="https://">
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699608125/cliss_f5eu4t.png" width="60%">
 
   </details>
 
@@ -127,10 +129,10 @@
 
   <details>
     <summary>Click to View Browser Test Evidence</summary>
-      - <img src="static/docs/chrome.test.png">
-      - <img src="static/docs/edge-test.png">
-      - <img src="static/docs/mozillafirefox-test.png">
-      - <img src="static/docs/safari-test.png">
+      - <img src="static/docs/chrome.test.png" width="60%">
+      - <img src="static/docs/edge-test.png" width="60%">
+      - <img src="static/docs/mozillafirefox-test.png" width="60%">
+      - <img src="static/docs/safari-test.png" width="60%">
       
 
   </details>

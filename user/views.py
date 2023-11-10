@@ -8,16 +8,16 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomRegistrationForm
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
-#from .models import UserProfile
-from offer.models import Post
+from offer.models import Post, Request
 from django.contrib.auth.models import User
 
 
 class RegistrationView(CreateView):
+    """
+    Handles the registration view
+    """
     form_class = CustomRegistrationForm
     template_name = 'account/signup.html'
-    # Redirect to the user's profile page after registration
-    success_url = reverse_lazy('dashboard/user_profile.html')
 
     def form_valid(self, form):
         user = form.save(self.request)
@@ -27,26 +27,35 @@ class RegistrationView(CreateView):
 
 @login_required
 def user_profile(request):
-    # Retrieve the user's profile
-    #user_profile, created = (
-        #User.objects
-        #.get_or_create(user=request.user)
-    #)
+    """
+    displays user's dashboard with different crud
+    functionailties, it alaos displays
+    offers made by the user and requests made
+    in the past and present with pending and approved statuses
+
+    """
+
+    # Retrieve the user's requests
+    user_requests = Request.objects.filter(user_fk=request.user)
 
     # Get the user's offers
     user_offers = Post.objects.filter(author=request.user)
 
+    # Paginate the offers
     items_per_page = 3
-    paginator = Paginator(user_offers, items_per_page)
-    page_number = request.GET.get('page')
-    # Get the Page object for the current page
-    page = paginator.get_page(page_number)
+    paginator_offers = Paginator(user_offers, items_per_page)
+    page_number_offers = request.GET.get('page_offers')
+    page_offers = paginator_offers.get_page(page_number_offers)
+
+    # Paginate the requests
+    paginator_requests = Paginator(user_requests, items_per_page)
+    page_number_requests = request.GET.get('page_requests')
+    page_requests = paginator_requests.get_page(page_number_requests)
 
     context = {
         'user': request.user,
-        'user_profile': user_profile,
-        'user_offers': page,
+        'user_offers': page_offers,
+        'user_requests': page_requests,
     }
 
     return render(request, 'dashboard/user_profile.html', context)
-

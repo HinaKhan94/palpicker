@@ -52,7 +52,7 @@ The goal of the platform is to mainly have students/people with similar struggle
 
 The Entity Relationship Diagram (ERD) illustrates the structure of the database which lies at the core of the functionality of the site:
 
-![ERD](/static/docs)
+<img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699609000/logicflow_hgjmvq.png" width="60%">
 
 A `User` Model is provided by Django, and a `Logentry Model` stores the details of each Post that a user makes, a user can add many posts. 
 
@@ -455,7 +455,7 @@ Several core packages were used, a few of the most important ones are listed her
 
 ## Testing and Validation
 
-The testing documentation can be found at [TESTING.md]()
+The testing documentation can be found at [TESTING.md](https://github.com/HinaKhan94/palpicker/blob/main/TESTING.md)
 
 ## Deployment & Development
 

@@ -8,9 +8,18 @@ import uuid
 
 
 class RequestForm(forms.ModelForm):
+    """
+    handles the information provided
+    by the user who is making the request
+    for a particular offer. it automatically
+    asisgns the user_fk so to display requests
+    on the user profile page for user to see
+    """
     class Meta:
         model = Request
-        fields = ('first_name', 'last_name', 'email', 'message',)
+        fields = ('first_name', 'last_name', 'email', 'message', 'phone',)
+    # user_fk field is hidden
+    user_fk = forms.IntegerField(widget=forms.HiddenInput(), required=False)
 
 
 class ContactForm(forms.ModelForm):
@@ -25,6 +34,8 @@ class ContactForm(forms.ModelForm):
 
 class CreateOfferForm(forms.ModelForm):
     """
+    takes in all the information required to
+    create a new offer
     """
     class Meta:
         model = Post
@@ -34,6 +45,9 @@ class CreateOfferForm(forms.ModelForm):
 
 class EditOfferForm(forms.ModelForm):
     """
+    lets the user edit an existinf offer that
+    he/she mmade with prepopulated fields with the
+    old information
     """
     class Meta:
         model = Post

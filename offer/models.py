@@ -4,7 +4,7 @@ from django.utils.text import slugify
 from cloudinary.models import CloudinaryField
 from datetime import datetime, timedelta
 from django.utils import timezone
-#from user.models import UserProfile
+
 
 # status zero as draft and 1 as published for offer
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -40,7 +40,7 @@ class Post(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
-    
+
     class Meta:
         ordering = ['-created_on']
 
@@ -60,12 +60,11 @@ class Request(models.Model):
     last_name = models.CharField(max_length=200)
     email = models.EmailField()
     phone = models.CharField(max_length=100,
-                             verbose_name="Enter customer's contact number",)
+                             verbose_name="Please enter your contact number",)
     message = models.TextField()
     date_created = models.DateTimeField(default=timezone.now, blank=True)
     status = models.CharField(max_length=25, choices=STATUS_CHOICES,
                               default='Pending')
-    user_id = models.IntegerField(blank=True, default='0')
     user_fk = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     approved = models.BooleanField(default=False)
 
@@ -77,6 +76,12 @@ class Request(models.Model):
 
 
 class Contact(models.Model):
+    """
+    model for storing user's contact
+    information when they fill in the form
+    via contact page. This is for both registered and
+    unregistered users
+    """
     name = models.CharField(max_length=100)
     email = models.EmailField()
     message = models.TextField()
