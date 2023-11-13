@@ -95,10 +95,7 @@ class CreateRequestView(LoginRequiredMixin, CreateView):
         post = self.get_object()
         form.instance.post = post
         form.instance.user_fk = self.request.user
-        response = super().form_valid(form)
-        self.object.save(user=self.request.user)
-
-        return response
+        return super().form_valid(form)
 
 
 class ContactView(View):

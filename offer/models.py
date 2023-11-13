@@ -65,14 +65,8 @@ class Request(models.Model):
     date_created = models.DateTimeField(default=timezone.now, blank=True)
     status = models.CharField(max_length=25, choices=STATUS_CHOICES,
                               default='Pending')
-    user_fk = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user_fk = models.ForeignKey(User, on_delete=models.CASCADE)
     approved = models.BooleanField(default=False)
-
-    def save(self, *args, **kwargs):
-        # If user_fk is not set, associate it with the current user
-        if not self.user_fk:
-            self.user_fk = kwargs.get('user')
-        super(Request, self).save(*args, **kwargs)
 
     class Meta:
         ordering = ['-date_created']
