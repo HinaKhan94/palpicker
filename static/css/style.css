@@ -160,7 +160,9 @@ header.hero-image .site-heading {
 .btn-signup:hover,
 .btn-signup:active {
 	background-color: #fff;
-	color: #0F6799;
+	color: #212529;
+	text-decoration: underline;
+	cursor: pointer;
 }
 
 /*-------Offer section------*/
@@ -232,7 +234,6 @@ header.hero-image .site-heading {
 	z-index: 100;
 }
 
-/*-------Register/login section links------*/
 .post-link {
 	text-decoration: none;
 	color: #212529;
@@ -252,14 +253,20 @@ header.hero-image .site-heading {
 	margin-left: 5%;
 	color: lightgray;
 }
-
-.link {
+/*-------Register/login section links------*/
+.link, .login-link {
 	color: #A2310B;
 	text-decoration: none;
 }
 
 .link:hover,
 .link:active {
+	color: #212529;
+	text-decoration: underline;
+}
+
+.login-link:hover,
+.login-link:active {
 	color: #212529;
 	text-decoration: underline;
 }

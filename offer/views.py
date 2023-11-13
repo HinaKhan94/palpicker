@@ -92,15 +92,11 @@ class CreateRequestView(LoginRequiredMixin, CreateView):
     context_object_name = 'post'
 
     def form_valid(self, form):
-        print("Form is valid")
         post = self.get_object()
         form.instance.post = post
         form.instance.user_fk = self.request.user
-        return super().form_valid(form)
+        response = super().form_valid(form)
 
-        request_instance = self.object
-        request_instance.user_fk = self.request.user
-        request_instance.save()
         return response
 
 
@@ -217,6 +213,9 @@ class EditOfferView(LoginRequiredMixin, View):
         form = EditOfferForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
+            # success message
+            messages.success(request,
+                             'Your changes have been made.')
             return redirect('user_profile')
         return render(request, self.template_name,
                       {'form': form, 'post': post})

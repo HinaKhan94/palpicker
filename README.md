@@ -401,11 +401,6 @@ Allow the user to delete a post. The user will be prompted to confirm that they 
 
 Every time a user carries out a function on the website, either as part of the account functionality or the CRUD functionality, a success message will be displayed confirming that the function was carried out successfully. Some of the messages are shown here but this is not an exhaustive list.
 
-![Success Sign In](/static/docs/)
-
-![Success Contact Message](/static/docs/)
-
-![Success Post Approval](/static/docs/)
 
 ## Future Features
 

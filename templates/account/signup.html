@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load i18n %}
+{% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
@@ -25,7 +26,7 @@
       <h3>{% trans "Register Here" %}</h3>
 
       <p>{% blocktrans %}Welcome to Palpicker. Already have an account? Then please <a class="link"
-          href="{{ login_url }}">log In</a> here.{% endblocktrans %}</p>
+          href="{{ login_url }}" class="login-link">log In</a> here.{% endblocktrans %}</p>
     </div>
   </div>
   <div class="row">
@@ -33,14 +34,9 @@
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
         <!--{{ form.as_p }}-->
-        {{ form.username.label_tag }}<br>{{ form.username }}
-        <br>
-        {{ form.email.label_tag }}<br>{{ form.email }}
-        <br>
-        {{ form.password1.label_tag }}<br>{{ form.password1 }}
-        <br>
-        {{ form.password2.label_tag }}<br>{{ form.password2 }}
-        <br>
+        {% for field in form %}
+        {{ field|as_crispy_field }}
+        {% endfor %}
 
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />

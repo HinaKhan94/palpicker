@@ -69,9 +69,9 @@ class Request(models.Model):
     approved = models.BooleanField(default=False)
 
     def save(self, *args, **kwargs):
+        # If user_fk is not set, associate it with the current user
         if not self.user_fk:
-            # If user_fk is not set, associate it with the current user
-            self.user_fk = self.post.author if self.post else self.user_fk
+            self.user_fk = kwargs.get('user')
         super(Request, self).save(*args, **kwargs)
 
     class Meta:

@@ -11,7 +11,7 @@
   * [Browser Compatability](#browser-compatability)
   * [Automated Tests](#automated-tests)
 
-  [Return to README.md](https://github.com/)
+  [Return to README.md](https://github.com/HinaKhan94/palpicker/blob/main/README.md)
 
 
 ## TESTS PERFORMED
