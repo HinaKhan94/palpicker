@@ -24,7 +24,6 @@
     <div class="container">
         <div class="dashboard-title">
             <h1><strong>Welcome {{ user }}:</strong></h1>
-            <a href="{% url 'view_requests' %}">My requests</a>
         </div>
     </div>
 
@@ -97,7 +96,7 @@
                 {% empty %}
                 <p>There are no offers to display, create one now!</p>
                 {% endfor %}
-                <!-- Display pagination links for user offers -->
+<!-- Display pagination links for user offers -->
 <div class="pagination justify-content-center pagi-links">
     <span class="step-links">
         {% if user_offers.has_previous %}
