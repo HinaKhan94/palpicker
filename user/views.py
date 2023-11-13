@@ -55,7 +55,7 @@ def user_profile(request):
     context = {
         'user': request.user,
         'user_offers': page_offers,
-        'user_requests': page_requests,
+        'user_requests': user_requests,
     }
 
     return render(request, 'dashboard/user_profile.html', context)

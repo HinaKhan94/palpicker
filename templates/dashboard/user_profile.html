@@ -96,18 +96,17 @@
                 {% empty %}
                 <p>There are no offers to display, create one now!</p>
                 {% endfor %}
-                <!-- Display pagination links -->
-                <div class="pagination justify-content-center pagi-links">
-                    <span class="step-links">
-                        {% if user_offers.has_previous %}
-                            <a href="?page={{ user_offers.previous_page_number }}">Previous</a>
-                        {% endif %}
-                        
-                        {% if user_offers.has_next %}
-                            <a href="?page={{ user_offers.next_page_number }}">Next</a>
-                        {% endif %}
-                    </span>
-                </div>
+                <!-- Display pagination links for user offers -->
+<div class="pagination justify-content-center pagi-links">
+    <span class="step-links">
+        {% if user_offers.has_previous %}
+            <a href="?page_offers={{ user_offers.previous_page_number }}">Previous</a>
+        {% endif %}
+        {% if user_offers.has_next %}
+            <a href="?page_offers={{ user_offers.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+</div>
             </div>
         </div>
     </div>
