@@ -49,6 +49,7 @@ class PostDetail(View):
         post = get_object_or_404(queryset, slug=slug)
 
         request_form = RequestForm(data=request.POST)
+        request_form.instance.user_fk_id = request.user.id
 
         if request_form.is_valid():
             request_form.instance.email = request.user.email
@@ -78,24 +79,34 @@ class AboutView(generic.TemplateView):
         return context
 
 
-class CreateRequestView(LoginRequiredMixin, CreateView):
-    """
-    the view for creating requests
-    his view ensures that the user_fk
-    field of the newly created request
-    is set to the current user before saving the request.
-    """
+# class CreateRequestView(LoginRequiredMixin, CreateView):
+#     """
+#     the view for creating requests
+#     his view ensures that the user_fk
+#     field of the newly created request
+#     is set to the current user before saving the request.
+#     """
 
-    model = Request
-    form_class = RequestForm
-    template_name = 'post_detail.html'
-    context_object_name = 'post'
+    # model = Request
+    # form_class = RequestForm
+    # template_name = 'post_detail.html'
+    # context_object_name = 'post'
 
-    def form_valid(self, form):
-        post = self.get_object()
-        form.instance.post = post
-        form.instance.user_fk = self.request.user
-        return super().form_valid(form)
+    # def post(self, request):
+    #     form = RequestForm(request.Post)
+    #     form.instance.user_fk_id = request.user_fk_id
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('user_profile')
+    #     else:
+    #         messages.error(request, 'error')
+    #         redirect('user_profile')
+
+    #def form_valid(self, form):
+        #form.instance.user_fk_id = self.request.id
+        #post = self.get_object()
+        #form.instance.post = post
+        #return super().form_valid(form)
 
 
 class ContactView(View):
