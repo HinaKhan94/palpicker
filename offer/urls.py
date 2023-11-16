@@ -15,4 +15,6 @@ urlpatterns = [
          views.DeleteOfferView.as_view(), name='delete_offer'),
     path('edit_offer/<slug:offer_slug>/',
          views.EditOfferView.as_view(), name='edit_offer'),
+     path('view_requests/', ViewRequestsListView.as_view(),
+          name='view_requests'),
 ]

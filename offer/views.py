@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
 from django.utils.decorators import method_decorator
 from django.http import Http404
 
@@ -77,36 +78,6 @@ class AboutView(generic.TemplateView):
         context = super().get_context_data(**kwargs)
         context['navbar'] = 'aboutus'
         return context
-
-
-# class CreateRequestView(LoginRequiredMixin, CreateView):
-#     """
-#     the view for creating requests
-#     his view ensures that the user_fk
-#     field of the newly created request
-#     is set to the current user before saving the request.
-#     """
-
-    # model = Request
-    # form_class = RequestForm
-    # template_name = 'post_detail.html'
-    # context_object_name = 'post'
-
-    # def post(self, request):
-    #     form = RequestForm(request.Post)
-    #     form.instance.user_fk_id = request.user_fk_id
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect('user_profile')
-    #     else:
-    #         messages.error(request, 'error')
-    #         redirect('user_profile')
-
-    #def form_valid(self, form):
-        #form.instance.user_fk_id = self.request.id
-        #post = self.get_object()
-        #form.instance.post = post
-        #return super().form_valid(form)
 
 
 class ContactView(View):
@@ -228,3 +199,12 @@ class EditOfferView(LoginRequiredMixin, View):
             return redirect('user_profile')
         return render(request, self.template_name,
                       {'form': form, 'post': post})
+
+
+class ViewRequestsListView(ListView):
+    model = Request
+    template_name = 'dashboard/view_requests.html'
+    context_object_name = 'user_requests'
+
+    def get_queryset(self):
+        return Request.objects.filter(user=self.request.user)
