@@ -17,7 +17,7 @@ class RequestForm(forms.ModelForm):
     """
     class Meta:
         model = Request
-        fields = ('first_name', 'last_name', 'email', 'phone', 'message',)
+        fields = ('first_name', 'last_name', 'phone', 'message',)
     # user_fk field is hidden
     user_fk = forms.IntegerField(widget=forms.HiddenInput(), required=False)
 

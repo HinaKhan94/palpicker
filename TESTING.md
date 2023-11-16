@@ -9,7 +9,7 @@
   * [JSHINT](#jshint)
   * [PYLINT](#pylint)
   * [Browser Compatability](#browser-compatability)
-  * [Automated Tests](#automated-tests)
+  * [Unsolved Bugs](#unsolved-bugs)
 
   [Return to README.md](https://github.com/HinaKhan94/palpicker/blob/main/README.md)
 
@@ -20,7 +20,6 @@
   2. Manual user story tests
   3. HTML, CSS, JSHINT, PYLINT, Lighthouse, PEP8
   4. Browser Compatability Tests
-  5. Django Automated Tests
 
   ### Manual User Story Tests
   User story tests were conducted systematically, with any failing tests rectified. 
@@ -35,7 +34,7 @@
       <br>
       - <img src="static/docs/test5.tests.png" width="60%">
       <br>
-      - <img src="static/docs/test6.tests.png" width="60%">
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1700131508/manualtest_oopx7c.png" width="60%">
       <br>
     
 
@@ -49,6 +48,7 @@
   <details>
     <summary>Click to View HTML Test Evidence</summary>
     <br>
+      - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1700135419/htmlsum_ksn6qt.png">
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606583/homepage.htmlss_ht4xvv.png" width="60%">
       <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606582/contact.htmlss_kpqiyv.png" width="60%">
@@ -57,12 +57,6 @@
       <br>
       - <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699606583/userprofile.htmlss_cwnrjv.png" width="60%">
       <br>
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
-      - <img src="">
 
   </details>
 
@@ -166,25 +160,8 @@
 
   </details>
 
-  * [Back to Contents](#contents)
-
-  ### Automated Tests
-  A total of  were written using Django's Unittest framework.
-  The tests can be run by entering "python3 manage.py test" into the terminal.
-  Tests covered cluded tests on:
-  - Pages
-  - Errors
-  - Contact
-  - Dashboard functions
-
-  <details>
-    <summary>Click to View Automated Test Evidence & Coverage Report</summary>
-      - <img src="https:">
-      - <img src="https:.png">
-
-  </details>
-
-  There were 4 naive date warnings left which have been added to Future Enhancements list to be addressed.
-  The site does make use of timezone functionality in the models.
+  ### Unsolved Bugs
+  
+  - No unsolved bugs
 
   * [Back to Contents](#contents)

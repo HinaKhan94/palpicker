@@ -8,7 +8,6 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
-from django.views.generic.list import ListView
 from django.utils.decorators import method_decorator
 from django.http import Http404
 
@@ -199,12 +198,3 @@ class EditOfferView(LoginRequiredMixin, View):
             return redirect('user_profile')
         return render(request, self.template_name,
                       {'form': form, 'post': post})
-
-
-class ViewRequestsListView(ListView):
-    model = Request
-    template_name = 'dashboard/view_requests.html'
-    context_object_name = 'user_requests'
-
-    def get_queryset(self):
-        return Request.objects.filter(user=self.request.user)

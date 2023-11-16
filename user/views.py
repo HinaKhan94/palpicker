@@ -10,6 +10,7 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from offer.models import Post, Request
 from django.contrib.auth.models import User
+from django.views.generic.list import ListView
 
 
 class RegistrationView(CreateView):
@@ -47,11 +48,6 @@ def user_profile(request):
     page_number_offers = request.GET.get('page_offers')
     page_offers = paginator_offers.get_page(page_number_offers)
 
-    # Paginate the requests
-    paginator_requests = Paginator(user_requests, items_per_page)
-    page_number_requests = request.GET.get('page_requests')
-    page_requests = paginator_requests.get_page(page_number_requests)
-
     context = {
         'user': request.user,
         'user_offers': page_offers,
@@ -59,3 +55,31 @@ def user_profile(request):
     }
 
     return render(request, 'dashboard/user_profile.html', context)
+
+
+class ViewRequestsListView(ListView):
+    """
+    displays user's requests with
+    pending and approved statuses
+    and a pagination of 3 per page
+
+    """
+    model = Request
+    template_name = 'dashboard/view_requests.html'
+    context_object_name = 'user_requests'
+    items_per_page = 3
+
+    def get_queryset(self):
+        return Request.objects.filter(user_fk=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        # Paginate the requests
+        paginator_requests = Paginator(context['user_requests'],
+                                       self.items_per_page)
+        page_number_requests = self.request.GET.get('page_requests')
+        page_requests = paginator_requests.get_page(page_number_requests)
+
+        context['user_requests'] = page_requests
+        return context

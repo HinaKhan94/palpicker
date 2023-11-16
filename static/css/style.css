@@ -323,7 +323,7 @@ header.hero-image .site-heading {
 	padding: 0;
 }
 
-.contact-h1 {
+.contact-heading {
 	text-align: center;
 }
 
@@ -436,6 +436,15 @@ footer,
 	color: #212529;
 }
 
+/*-------User Requests Page------*/
+
+.req-icon {
+	margin-left: 5px;
+}
+
+.req-icon:hover {
+	text-decoration: none;
+}
 
 /*-------------- media queries --------------- */
 @media only screen and (min-width: 768px) {

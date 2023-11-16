@@ -54,7 +54,11 @@ The Entity Relationship Diagram (ERD) illustrates the structure of the database 
 
 <img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1699609000/logicflow_hgjmvq.png" width="60%">
 
-A `User` Model is provided by Django, and a `Logentry Model` stores the details of each Post that a user makes, a user can add many posts. 
+A `User` Model is provided by Django, and a `Post Model` stores the details of each Post that a user makes, a user can add many posts. 
+
+A `Request` Model stores requests made by users for different Offers, a user can make multiple requests.
+
+A `Contact` model stores contact information of registered and unregistered users.
 
 A '`UserProfile` Model was also created but due to the repitition of the data, all instances of userprofile model was removed from the code.
 
@@ -135,7 +139,7 @@ The application was developed considering the Five Planes of User Experience:
 
 ### Structure
 
-The website is divided into 11 pages with content depending on whether the user is authenticated or not.
+The website is divided into 12 pages with content depending on whether the user is authenticated or not.
 
 #### Current/Initial Structure
 
@@ -144,6 +148,7 @@ The website is divided into 11 pages with content depending on whether the user 
 - **Login/Logout Pages** allow the user to authenticate or log out of their account.
 - **Create New Post Page** allows an authenticated user to create a new post to their account.
 - **User Profile Page** allows authenticated user to see all their posts including those with the approved status and those that have not yet been published and are just saved as a draft.
+- **User Requests Page** allows the logged in user to see of the requests (pending and approved) over the time to keep a track of their requests
 - **User Profile Page** allows the user to view all the details of the post, if they are authenticated and it is their post they will see buttons that allow them to access the edit or delete features. They will also see a feature for adding/editing/deleting posts.
 - **Edit Post Page** displays a prepopulated post form and allows the user to edit their previous inputs.
 - **Delete Post Page** allows the user to delete their post with a confirmation message to delete.
@@ -183,7 +188,7 @@ The wireframes for the pages listed in the above [Structure](#structure) section
 
 <details>
 <summary>User Profile View</summary>
-<img src="ht" width="60%">
+<img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1700131014/userprofile-ss_gao4lk.png" width="60%">
 </details>
 
 4. **Create a Post View**
@@ -197,16 +202,18 @@ The wireframes for the pages listed in the above [Structure](#structure) section
 
 <details>
 <summary>Register</summary>
-<img src="static/docs/register-ss.png" width="60%">
+<img src="https://res.cloudinary.com/dsypcsyiy/image/upload/v1700130585/reg-ss_jxdg6l.png" width="60%">
 </details>
 
-6. **404 Page** - a simple 404 Error page is also included (404.html)
 
 ### Surface
 
 #### Color Scheme
 
-![Color Scheme](/static/docs/color-pallete.png)
+- Tory Blue: #0F6799
+- Cinnabar: #A2310B
+- Buttercup: #F3C40D
+- Blue,shark: #212529
 
 #### Font
 
@@ -243,8 +250,6 @@ The development of this project was managed through GitHub issues, milestones, a
   - Add CSS styling to authorization pages
   - Setup a README file with a basic layout
   - Change materialize to bootstrap styling
-  - Install crispy-bootstrap4
-  - Style header and footer
   
 
 - Sprint 3: Customized views and README - October 30th, 2023 to November 6th, 2023
@@ -260,11 +265,10 @@ The development of this project was managed through GitHub issues, milestones, a
   - Add and finalize display of success-messages
   - First Lighthouse testing
   - Fixes based on Lighthouse testing
-  - Set automated view testing
   - Add functionality to add/approve posts
   - MVP reached
 
-- Sprint 5: Testing, Final revisions to code and documentation - November 10th to November 15th, 2023
+- Sprint 5: Testing, Final revisions to code and documentation - November 10th to November 16th, 2023
 
   - Set up view, model, and form testing
   - install coverage package and compile coverage report
@@ -274,7 +278,6 @@ The development of this project was managed through GitHub issues, milestones, a
   - Delete commented code
   - Add test results and images to TESTING.md
   - Add content to the features section in README
-  - Add LoginRequiredMixin to the relevant views
   - Carry out final revisions
   - Finalize README.md and TESTING.md
   - Proofread code and documentation
@@ -352,8 +355,13 @@ Home page is same for all users.
 
 - Allows registered users to see their posts including pending and approved.
 
-![My Posts](/static/docs)
+![My Posts](https://res.cloudinary.com/dsypcsyiy/image/upload/v1700130585/offerdetailsss_yli9a9.png)
 
+**User Requests**
+
+- Allows registered users to see their requests including pending and approved.
+
+![My Posts](https://res.cloudinary.com/dsypcsyiy/image/upload/v1700130577/requests-ss_zdx7nd.png)
 
 **Post Detail View**
 
@@ -451,6 +459,7 @@ Several core packages were used, a few of the most important ones are listed her
 - Google Fonts - used to import fonts for the website.
 - Font Awesome - used for icon features on the site.
 - Canva - used to generate the color scheme.
+- Name Fatso - used to generate Website's site.
 
 * [Back to Contents](#contents)
 

@@ -9,125 +9,105 @@
 <section class="bg-light">
    <!------ Breadcrumbs ------>
    <div id="breadcrumbs" class="breadcrumbs">
-    <div class="container">
-        <div class="d-flex justify-content-between align-items-center">
+      <div class="container">
+         <div class="d-flex justify-content-between align-items-center">
             <ol>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li>Profile</li>
+               <li><a href="{% url 'home' %}">Offers</a></li>
+               <li>Profile</li>
             </ol>
-        </div>
-    </div>
-</div>
+         </div>
+      </div>
+   </div>
 </section>
 
 <!------ Profile Dashboard ------>
-    <div class="container">
-        <div class="dashboard-title">
-            <h1><strong>Welcome {{ user }}:</strong></h1>
-            <h3><a href="{% url 'view_requests' %}">My Requests</a></h3>
-        </div>
-    </div>
+<div class="container">
+   <div class="dashboard-title">
+      <h1><strong>Welcome {{ user }}:</strong></h1>
+      <a class="btn btn-signup btn-lg req-icon" href="{% url 'view_requests' %}">My Requests<i class="fa-regular fa-envelope req-icon"></i></a>
+      <br>
+      <br>
+   </div>
+</div>
 
 
 <!------ Create New Offer Button ------>
 <div class="text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-12 create-btn">
-                    <h2>Create New Service</h2>
-                    <a href="{% url 'create_offer' %}" class="btn btn-primary create-btn-big">
-                        <i class="fa-solid fa-circle-plus"></i>
-                    </a>
-                </div>
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="col-md-12 create-btn">
+               <br>
+               <h2>Create New Service</h2>
+               <a href="{% url 'create_offer' %}" class="btn btn-primary create-btn-big">
+               <i class="fa-solid fa-circle-plus"></i>
+               </a>
             </div>
-            <div class="col-md-12">
-                <h3>Your Offers</h3>
-                {% for post in user_offers %}
-                <!--  Items -->
-                <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4">
-                    <div class="container offer-details-card card shadow my-2">
-                        <div class="row">
-                            <div class="col-12 col-md-8 mt-3">
-                                    <p>
-                                        Title: <strong>
-                                            {{ post.title }}</strong></p>
-
-                                    <p><i class="fa-regular fa-newspaper"></i>  <strong>
-                                            {{ post.excerpt }}</strong></p>
-
-
-                                    <p><i class="fa-solid fa-money-bill-1"></i> Price: <strong>
-                                            £{{ post.price }}</strong></p>
-                                    
-                                    <p><i class="fa-solid fa-calendar-days"></i> Date Created:
-                                            {{ post.created_on }}</p>
-
-                                    <p><i class="fa-solid fa-pen"></i><small> Last updated:
-                                            {{ post.updated_on }}</small>
-                                    </p>
-
-                                    <p class="offer-status">
-                                        <i class="fa-solid fa-traffic-light"></i>
-                                        {% if post.status == 0 %}
-                                            Pending ({{ post.status }})
-                                        {% elif post.status == 1 %}
-                                            Approved ({{ post.status }})
-                                        {% else %}
-                                            unknown {{ post.status }}
-                                        {% endif %}
-                                    </p>
-
-                            </div>
-                            <div class="col-12 col-md-4 mt-3">
-                                <!-- Edit Button -->
-                                <a class="btn btn-primary" href="{% url 'edit_offer' offer_slug=post.slug %}">
-                                    Edit
-                                </a>
-                
-                                <!-- Delete Button -->
-                                <a class="btn btn-danger" href="{% url 'delete_offer' offer_slug=post.slug %}">
-                                    Delete
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                {% empty %}
-                <p>There are no offers to display, create one now!</p>
-                {% endfor %}
-<!-- Display pagination links for user offers -->
-<div class="pagination justify-content-center pagi-links">
-    <span class="step-links">
-        {% if user_offers.has_previous %}
-            <a href="?page_offers={{ user_offers.previous_page_number }}">Previous</a>
-        {% endif %}
-        {% if user_offers.has_next %}
-            <a href="?page_offers={{ user_offers.next_page_number }}">Next</a>
-        {% endif %}
-    </span>
-</div>
+         </div>
+         <div class="col-md-12">
+            <br>
+            <br>
+            <h3>Your Offers</h3>
+            {% for post in user_offers %}
+            <!--  Items -->
+            <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4">
+               <div class="container offer-details-card card shadow my-2">
+                  <div class="row">
+                     <div class="col-12 col-md-8 mt-3">
+                        <p>
+                           Title: <strong>
+                           {{ post.title }}</strong>
+                        </p>
+                        <p><i class="fa-solid fa-money-bill-1"></i> Price: <strong>
+                           £{{ post.price }}</strong>
+                        </p>
+                        <p><i class="fa-solid fa-calendar-days"></i> Date Created:
+                           {{ post.created_on }}
+                        </p>
+                        <p><i class="fa-solid fa-pen"></i><small> Last updated:
+                           {{ post.updated_on }}</small>
+                        </p>
+                        <p class="offer-status">
+                           <i class="fa-solid fa-traffic-light"></i>
+                           {% if post.status == 0 %}
+                           Pending ({{ post.status }})
+                           {% elif post.status == 1 %}
+                           Approved ({{ post.status }})
+                           {% else %}
+                           unknown {{ post.status }}
+                           {% endif %}
+                        </p>
+                     </div>
+                     <div class="col-12 col-md-4 mt-3">
+                        <!-- Edit Button -->
+                        <a class="btn btn-primary" href="{% url 'edit_offer' offer_slug=post.slug %}">
+                        Edit
+                        </a>
+                        <!-- Delete Button -->
+                        <a class="btn btn-danger" href="{% url 'delete_offer' offer_slug=post.slug %}">
+                        Delete
+                        </a>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </div>
-</div>
-<!-- Displays user's requests -->
-<div class="col-md-12">
-    <h3>Your Requests</h3>
-    {% for request in user_requests %}
-        <!-- Request Details -->
-        <div class="col-md-10 mx-auto mt-md-3 mt-lg-4 mt-4">
-            <div class="container request-details-card card shadow my-2">
-                <!-- Displays relevant information about the request here -->
-                <p>Title: <strong>{{ request.post.title }}</strong></p>
-                <p>Status: {% if request.approved %} Approved {% else %} Pending {% endif %}</p>
+            {% empty %}
+            <p>There are no offers to display, create one now!</p>
+            {% endfor %}
+            <!-- Display pagination links for user offers -->
+            <br>
+            <div class="pagination justify-content-center pagi-links">
+               <span class="step-links">
+               {% if user_offers.has_previous %}
+               <a href="?page_offers={{ user_offers.previous_page_number }}">Previous</a>
+               {% endif %}
+               {% if user_offers.has_next %}
+               <a href="?page_offers={{ user_offers.next_page_number }}">Next</a>
+               {% endif %}
+               </span>
             </div>
-        </div>
-    {% empty %}
-        <p>You haven't made any requests yet.</p>
-    {% endfor %}
+         </div>
+      </div>
+   </div>
 </div>
 {% endblock %}
-
-
